@@ -1,11 +1,11 @@
 API:
-  LARGE_MODEL: meta-llama/Meta-Llama-3.1-70B-Instruct
-  LARGE_API_KEY: key-here
-  LARGE_BASE_URL: https://api.deepinfra.com/v1/openai
+  LARGE_MODEL: phi4-reasoning:14b-plus-fp16
+  LARGE_API_KEY: ollama
+  LARGE_BASE_URL: http://localhost:11434/v1
   LARGE_MODE: api
-  SMALL_MODEL: meta-llama/Meta-Llama-3.1-8B-Instruct
-  SMALL_BASE_URL: https://api.deepinfra.com/v1/openai
-  SMALL_API_KEY: key-here
+  SMALL_MODEL: phi4-reasoning:14b-plus-fp16
+  SMALL_BASE_URL: http://localhost:11434/v1
+  SMALL_API_KEY: ollama
   SMALL_MODE: api
 HUGGINGFACE:
   HUB_PATH: yourusername/your-path-here
@@ -13,12 +13,12 @@ HUGGINGFACE:
   PUSH_TO_HUB: False
 PATH:
   DEFAULT_PROMPTS: ./prompts
-  INPUT: ./input
-  OUTPUT: ./output
+  INPUT: /Users/lukasfiller/Downloads
+  OUTPUT: /Users/lukasfiller/output
   PROMPTS: ./prompts
 PHASE:
-  PHASE_INDEX: 3
-  WORK_IN_PHASES: False
+  PHASE_INDEX: 2
+  WORK_IN_PHASES: True
 SKIP:
   ANSWER_RELEVANCY_CHECK: False
   REPAIR_QA_TUPLES: False
@@ -26,7 +26,7 @@ SKIP:
   QUESTION_CHECK: False
   CONVERSATION_GENERATION: False
 SYSTEM:
-  CHUNK_SIZE: 1900
+  CHUNK_SIZE: 1024
   COMPLETION_MODE: False
   CONCURRENCY_LIMIT: 50
   CONVERSATION_INSTRUCTIONS: For this conversation, you are generating a chat between
