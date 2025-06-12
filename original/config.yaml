@@ -17,7 +17,7 @@ PATH:
   OUTPUT: /Users/lukasfiller/output
   PROMPTS: ./prompts
 PHASE:
-  PHASE_INDEX: 0
+  PHASE_INDEX: 1
   WORK_IN_PHASES: True
 SKIP:
   ANSWER_RELEVANCY_CHECK: False
