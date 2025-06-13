@@ -3,7 +3,7 @@ API:
   LARGE_API_KEY: ollama
   LARGE_BASE_URL: http://localhost:11434/v1
   LARGE_MODE: api
-  SMALL_MODEL: phi4-reasoning:14b-plus-fp16
+  SMALL_MODEL: minicpm-v:8b-2.6-q4_K_M
   SMALL_BASE_URL: http://localhost:11434/v1
   SMALL_API_KEY: ollama
   SMALL_MODE: api
@@ -17,7 +17,7 @@ PATH:
   OUTPUT: /Users/lukasfiller/output
   PROMPTS: ./prompts
 PHASE:
-  PHASE_INDEX: 1
+  PHASE_INDEX: 2
   WORK_IN_PHASES: True
 SKIP:
   ANSWER_RELEVANCY_CHECK: False
@@ -28,7 +28,7 @@ SKIP:
 SYSTEM:
   CHUNK_SIZE: 1024
   COMPLETION_MODE: False
-  CONCURRENCY_LIMIT: 50
+  CONCURRENCY_LIMIT: 20
   CONVERSATION_INSTRUCTIONS: For this conversation, you are generating a chat between
     a generalist, generic AI assistant, and a human.
   DOUBLE_CHECK_COUNTER: 1
