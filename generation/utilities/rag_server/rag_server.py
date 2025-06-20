@@ -644,10 +644,10 @@ async def rag_server(
     **kwargs,
 ):
 
-    with open(prompt_path, "r") as f:
+    with open(prompt_path, "r", encoding="utf-8") as f:
         prompt = f.read()
 
-    with open(template_path, "r") as f:
+    with open(template_path, "r", encoding="utf-8") as f:
         template = f.read()
 
     # Get parent directory of gguf model path
@@ -719,9 +719,9 @@ async def rag_server(
             ["git", "clone", "https://github.com/ggml-org/llama.cpp.git"], check=True
         )
         subprocess.run(
-            ["git", "checkout", "b775345d788ac16260e7eef49e11fe57ee5677f7"],
+            ["git", "checkout", "3cb203c89f60483e349f841684173446ed23c28f"],
             cwd="llama.cpp",
-            check=True
+            check=True,
         )
 
         # Check if llama-server exists

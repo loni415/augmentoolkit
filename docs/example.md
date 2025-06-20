@@ -114,7 +114,7 @@ def write_poetry_processor(output):
 
 def validate_poem(output, input_data):
     # ... returns True if output is valid, False otherwise ...
-    return True
+    return {"result": True, "message": "success"}
 
 def process_poem_input(input):
     # ... modifies input dict before LLM call ...
@@ -186,7 +186,7 @@ for index, item in sentence_hashed_dict.items():
         sharegpt_format_items.append(sharegpt_item)
 
 sharegpt_output_path = os.path.join(output_dir, "sharegpt_format.jsonl")
-with open(sharegpt_output_path, "w") as f:
+with open(sharegpt_output_path, "w", encoding='utf-8') as f:
     for sharegpt_item in sharegpt_format_items:
         f.write(json.dumps(sharegpt_item) + "\n")
 ```

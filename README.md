@@ -7,12 +7,12 @@ Maybe you want AI to know the latest research papers in your field, or perhaps y
 
 Get started now (the interface will guide you through generating your first dataset):
 
-(Be sure to use a either Python 3.10 or 3.11 when creating the virtual environment to be sure this'll work)
+(Be sure to use a either Python 3.11 when creating the virtual environment to be sure this'll work)
 
 ### MacOS (interface)
 ```bash
 git clone https://github.com/e-p-armstrong/augmentoolkit.git
-cd augmentoolkit # Python <= 3.10 < 3.13
+cd augmentoolkit # Python == 3.11
 bash macos.sh # NOTE: Will attempt to install valkey via brew if not found.
 # bash local_macos.sh # use this command if doing local dataset generation
 ```
@@ -20,28 +20,27 @@ bash macos.sh # NOTE: Will attempt to install valkey via brew if not found.
 ### Linux (interface)
 ```bash
 git clone https://github.com/e-p-armstrong/augmentoolkit.git
-cd augmentoolkit # Python <= 3.10 < 3.13
+cd augmentoolkit # Python == 3.11
 bash linux.sh # NOTE: will build Valkey from source if a Redis/Valkey server is not running
 ```
 
 **Or for local inference**
 ```bash
 git clone https://github.com/e-p-armstrong/augmentoolkit.git
-cd augmentoolkit # Python <= 3.10 < 3.13
-bash local_linux.sh normal # or you can write "small" or a custom model name to serve the quantized version (for more consumer hardware) or a model of your choice, respectively
+cd augmentoolkit # Python == 3.11
+bash local_linux.sh normal # or you can write "small" or a custom model name to serve the quantized version (for more consumer hardware) or a model of your choice, respectively. See the quickstart page linked just a bit farther down for a full reference here.
 ```
 
+If you have multiple GPUs, run `local_linux.sh` with the `--tensor-parallelism N` argument. N == number of GPUs you have (even). So: 1, 2, 4, 8... etc.
+
+> [!IMPORTANT]
+>
+> Please star the repo.
 
 ### Windows (interface)
 > [!NOTE]
 >
-> The interface requires Valkey (or Redis) to be installed and running MANUALLY. [The CLI is easier to get running on windows honestly.](docs/quickstart.md#windows-cli)
-Running the bat command will give you install instructions. Alternatively, see [`docs/quickstart.md`](./docs/quickstart.md)
-```bash
-git clone https://github.com/e-p-armstrong/augmentoolkit.git
-cd augmentoolkit
-./windows.bat # see above note about valkey/redis
-```
+> If you're on windows, your best bet is to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). [The CLI is easier to get running on windows honestly.](docs/quickstart.md#windows-cli)
 
 <sub>*Note that datagen can take a while on a lot of hardware however, don't expect fast datagen on an old mac for instance. And for training you will need either a powerful machine of your own, or to rent (latter is done automatically for you if you so choose).</sub>
 

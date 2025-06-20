@@ -2,6 +2,8 @@
 
 This isn't quite as "quick" as the simple start scripts shown at the start, but it's still pretty fast.
 
+**Local inference has separate start scripts that set up the LLM for datagen locally for you. Do not use the commands immediately below if you want to do things locally.**
+
 Here are those scripts again for reference, because they are the recommended way to start:
 
 ### MacOS (interface)
@@ -29,27 +31,44 @@ cd augmentoolkit
 bash linux.sh
 ```
 
-Linux offers fast and effective local dataset generation using vLLM. You can pick what model you want to use. **On systems with less VRAM that cannot run the FP16 7b datagen model, you should give the argument "small" to the script
+### Windows (interface)
+Use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) and then run the Linux command in your Linux terminal on Windows. Or use the CLI.
+
+### Local Datagen
+
+Linux offers fast and effective local dataset generation using vLLM. You can pick what model you want to use. 
+
+> [!NOTE]
+> 
+> **On systems with less VRAM that cannot run the FP16 7b datagen model, you should give the argument "small" to the script. You will also have to change the model name to the quantized model (`Heralax/Augmentoolkit-DataSpecialist-gptqmodel-4bit`) in your config.**
+
+See the comments in this runnable thing for how the arguments to `local_linux.sh` work.
 ```bash
 git clone https://github.com/e-p-armstrong/augmentoolkit.git
 cd augmentoolkit
-bash local_linux.sh small
+bash local_linux.sh small # runs quantized model
 # bash local_linux.sh # defaults to "normal"
-# bash local_linux.sh normal
+# bash local_linux.sh normal # runs FP16 model (fastest and highest quality but requires more powerful computer)
 # bash local_linux.sh deepseek-ai/DeepSeek-R1 # or you can pass in any model name you want so long as it is on huggingface or is available locally and will work with vLLM
 # bash local_linux.sh --help # get help. But you're already here, so you don't need that!
 ```
 
-### Windows (interface)
+> [!IMPORTANT]
+>
+> If you have multiple GPUs, run `local_linux.sh` with the `--tensor-parallelism N` argument. N == number of GPUs you have (even). So: 1, 2, 4, 8... etc.
+
+Mac also has local datagen, but much slower and without the parameter choice of Linux:
 ```bash
 git clone https://github.com/e-p-armstrong/augmentoolkit.git
 cd augmentoolkit
-./start_windows.bat
+bash local_macos.sh
 ```
 
-
-
 ## The CLI:
+
+> [!NOTE]
+>
+> To run **local models** with the CLI, all you have to do is, in another window, run some kind of **local LLM server** and then you can point the **base_url** in your dataset generation config to that local server. Using the [custom 7b dataset generation model](https://huggingface.co/Heralax/Augmentoolkit-DataSpecialist-v0.1) or its [quantized version](https://huggingface.co/Heralax/Augmentoolkit-DataSpecialist-gptqmodel-4bit) is recommended. **vLLM or Aphrodite is recommended.** Ollama will be comparatively very slow.
 
 ### MacOS (CLI)
 ```bash
@@ -120,17 +139,7 @@ If you prefer to run each component manually instead of using the start scripts,
 *   Redis (or Valkey, preferably): Huey uses Redis as a message broker. You need to install and run it separately.
     *   **macOS (using Homebrew):** `brew install valkey`, then ensure the service is running (`brew services start valkey`).
     *   **Linux (Debian/Ubuntu):** Install via package manager (`sudo apt update && sudo apt install valkey-server` or `redis-server`) and ensure the service is running (`sudo systemctl start valkey-server` or `redis-server`). The `linux.sh` script checks for this.
-    *   **Windows:** Requires manual setup. Valkey/Redis must be installed and running.
-        1.  **Check if running:** Look for `valkey-server.exe` or `redis-server.exe` in Task Manager, or check `services.msc`.
-        2.  **If not running, install:**
-            *   **Option 1 (Recommended): Use a Package Manager.** Open an **Administrator** PowerShell/CMD prompt.
-                *   If you have **Chocolatey** (find out with `choco --version`): Run `choco install valkey`. Then start the service (via `services.msc` or `valkey-server --service-start`).
-                *   If you have **Scoop** (`scoop --version`): Run `scoop install valkey`. Then start Valkey (e.g., run `valkey-server` in a separate terminal).
-                *   If you have **Winget** (`winget --version`): Run `winget install Redis.Redis` (Valkey might not be available yet). Then start the Redis service (via `services.msc`).
-            *   **Option 2: No Package Manager?**
-                *   Consider installing one first (e.g., Chocolatey: [https://chocolatey.org/install](https://chocolatey.org/install)) and then use Option 1.
-                *   Alternatively, download the `.msi` or binaries directly from [Valkey.io](https://valkey.io/) or [Redis.io](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/) and follow their installation instructions.
-        3.  **Verify:** Ensure the service is running before starting Augmentoolkit components. From this position, the `windows.bat` start script should work.
+    *   **Windows:** Set up WSL (Windows Subsystem for Linux) and then clone Augmentoolkit there and run one of the Linux start scripts. **You'll need to manually open up the localhost url in your browser of choice after it runs**
 
 **Steps:**
 
