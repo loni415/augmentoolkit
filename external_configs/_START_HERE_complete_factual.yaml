@@ -23,7 +23,7 @@ model_auto_train: # this config uses presets for inputs, outputs, etc. To help y
   wandb_api_key: dummy
   pod_id: # For taking advantage of a preexisting pod
 model_auto_run: # !!ATTENTION!! Augmentoolkit can download and run the model that you just trained, automatically for you. To run it in the future, run either the llm_server or rag_server pipelines, which will start an LLM server on port 8003. The interface has a chat window that listens to this port and lets you converse with your custom model entirely from within Augmentoolkit, entirely locally. NOTE THAT between the original weights of the model, plus the quantized weights, this will take 22 gigabytes of additional disk space for a moment, before going back down to 7 gigabytes -- ensure you have enough room!
-  do_run: True
+  do_run: False
   cache_dir: ./cache
   server_type: normal # normal OR rag, only meaningfu lif do_run is on, defaults to normal
 
@@ -65,8 +65,8 @@ system:
     Preface your thoughts with "Thought Process:" and your reponse with "Answer:". Write the filenames of any sources you recalled from memory in a list titled "Sources Cited" at the bottom of your response.
 pdf_cleaning:
   pdf_cleaning_chunk_size: 4000
-  pdf_cleaning_small_model: qwen2.5:3b
-  pdf_cleaning_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  pdf_cleaning_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
+  pdf_cleaning_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   pdf_cleaning_small_mode: api
   pdf_cleaning_large_mode: api
   pdf_cleaning_small_base_url: http://localhost:11434/v1
@@ -82,8 +82,8 @@ pdf_cleaning:
   pdf_cleaning_default_prompts: prompts
 representation_variation:
   representation_variation_chunk_size: 4000
-  representation_variation_small_model: qwen2.5:3b
-  representation_variation_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  representation_variation_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
+  representation_variation_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   representation_variation_small_mode: api
   representation_variation_large_mode: api
   representation_variation_small_base_url: http://localhost:11434/v1
@@ -152,11 +152,11 @@ factual_sft_settings:
   factual_use_stop: True
   factual_chunk_size: 3000
   factual_completion_mode: False
-  factual_small_model: qwen2.5:3b
+  factual_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
   factual_small_api_key: dummy
   factual_small_base_url: http://localhost:11434/v1
   factual_small_mode: api
-  factual_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  factual_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   factual_large_api_key: dummy
   factual_large_base_url: http://localhost:11434/v1
   factual_large_mode: api
@@ -214,11 +214,11 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
   ]
   num_items_per_group: 3
   rag_skip_filter_chunks: False
-  rag_small_model: qwen2.5:3b
+  rag_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
   rag_small_api_key: dummy
   rag_small_base_url: http://localhost:11434/v1
   rag_small_mode: api
-  rag_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  rag_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   rag_large_api_key: dummy
   rag_large_base_url: http://localhost:11434/v1
   rag_large_mode: api
@@ -231,11 +231,11 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
   rag_default_prompts: prompts
 transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain_data is True
   transform_generic_data_use_stop: True
-  transform_generic_data_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  transform_generic_data_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   transform_generic_data_large_api_key: dummy
   transform_generic_data_large_base_url: http://localhost:11434/v1
   transform_generic_data_large_mode: api
-  transform_generic_data_small_model: qwen2.5:3b
+  transform_generic_data_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
   transform_generic_data_small_api_key: dummy
   transform_generic_data_small_base_url: http://localhost:11434/v1
   transform_generic_data_small_mode: api
@@ -250,11 +250,11 @@ correction_pipeline:
   correction_use_subset: False
   correction_subset_size: 30
   correction_chunk_size: 4000
-  correction_small_model: qwen2.5:3b
+  correction_small_model: phi3:3.8b-mini-4k-instruct-q4_K_M
   correction_small_api_key: dummy
   correction_small_base_url: http://localhost:11434/v1
   correction_small_mode: api
-  correction_large_model: mistral:7b-instruct-v0.3-q4_K_M
+  correction_large_model: phi3:14b-medium-4k-instruct-q5_K_M
   correction_large_api_key: dummy
   correction_large_base_url: http://localhost:11434/v1
   correction_large_mode: api
