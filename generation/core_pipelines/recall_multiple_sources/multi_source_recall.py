@@ -128,6 +128,7 @@ async def generate_multi_source_dataset(
     cleanup_embedding_dir=False,
     task_id=None,  # The good thing is that the task id requirement does not complicate the execution of pipelines inside other pipelines, and you don't need to think about THEIR progress as a part of THIS pipeline's progress. Thoug if we eid have away of peeking that progress it might be helpful since we coulddo th same with pipelinestep executions... no, because the policy is to favor API simplicity over fine control to make adoption/pipeline creation easier. Also the goal of the client is to make using this easier too. So gotchas like changing the node but not the config etc., editing things and mistakes -- these can be watched for and caught. Whether the path exists can be caught and shown as a specific warning. How will we record the rate oferrors? Simple, I guess we could how the % of things that made it to the end compared to how many we started with to get the percent.
     seed=1048596,
+    uncap_retrieved_doc_length = False,
     **kwargs,
 ):
 
@@ -212,7 +213,7 @@ async def generate_multi_source_dataset(
                 )
             ],
             engine_output_observers=[
-                create_log_observer(output_dir),
+                create_log_observer(output_dir, do_meta_datagen),
                 create_output_token_counter(
                     counter=small_token_counter,
                     cost_per_million=cost_per_million_small_output,
@@ -233,7 +234,7 @@ async def generate_multi_source_dataset(
                 )
             ],
             large_engine_output_observers=[
-                create_log_observer(output_dir),
+                create_log_observer(output_dir, do_meta_datagen),
                 create_output_token_counter(
                     counter=large_token_counter,
                     cost_per_million=cost_per_million_large_output,
@@ -474,19 +475,24 @@ async def generate_multi_source_dataset(
     )
 
     # Function to retrieve relevant chunks based on a query
-    def retrieve_rag_chunks(query, top_k=3):
+    async def retrieve_rag_chunks(query, top_k=3, timeout_seconds=30):
         """
         Retrieve chunks from the RAG collection that are relevant to the query
 
         Args:
             query: The text to find relevant chunks for
             top_k: Number of chunks to retrieve (default 3)
+            timeout_seconds: Timeout for the query operation (default 30)
 
         Returns:
             A list of dictionaries with text and metadata
         """
         try:
-            results = collection.query(query_texts=[query], n_results=top_k)
+            # Wrap the synchronous collection.query call with a timeout
+            results = await asyncio.wait_for(
+                asyncio.to_thread(collection.query, query_texts=[query], n_results=top_k),
+                timeout=timeout_seconds
+            )
 
             chunks = []
             if results and results["documents"] and len(results["documents"]) > 0:
@@ -497,7 +503,7 @@ async def generate_multi_source_dataset(
 
                     chunks.append(
                         {
-                            "text": doc,
+                            "text": doc if uncap_retrieved_doc_length else doc[:6000],
                             "metadata": results["metadatas"][0][i]["source"],
                         }
                     )
@@ -507,6 +513,10 @@ async def generate_multi_source_dataset(
                 )  # Log retrieval failure
 
             return chunks
+        except asyncio.TimeoutError:
+            logging.error(f"RAG Query for '{query[:50]}...' timed out after {timeout_seconds} seconds.")
+            print(f"RAG query timed out after {timeout_seconds} seconds for query: {query[:50]}...")
+            return []
         except Exception as e:
             print(f"Error retrieving RAG chunks: {str(e)}")
             import traceback
@@ -571,10 +581,10 @@ async def generate_multi_source_dataset(
     prompt_path_qatuples_gen = "qatuples_gen_filenames"
 
     class QGenStep(OneToManyStep):
-        def process_input_data(self, input_data):
+        async def process_input_data(self, input_data):
             # print(f"QGenStep: Processing item with text starting: {input_data['text'][:50]}...") # Log item start
             # print("QGenStep: Retrieving RAG chunks...")
-            related_chunks = retrieve_rag_chunks(input_data["text"], top_k=3)
+            related_chunks = await retrieve_rag_chunks(input_data["text"], top_k=3)
             # print(f"QGenStep: RAG retrieval complete. Found {len(related_chunks)} related chunks (excluding self).")
 
             # Skip self-referential chunks (same chunk retrieved for itself)
