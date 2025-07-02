@@ -38,7 +38,7 @@ path:
       rag_use_subset: True
       correction_subset_size: 1500
       correction_use_subset: True
-  output_dir: ./outputs/my_first_dataset
+  output_dir: ./outputs/my_second_dataset
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
@@ -50,7 +50,7 @@ system:
   generic_thought_process_on_domain_data: True # whether to make the domains-specific data use similar thought process structure as the generic data. May improve performance and generalization but requires source citing to be on if you want filenames in answers that you can reference. Also adds an extra LLM computation step. NOTE/QUESTION to me -- should this be a step inside the factual pipeline, or the complete pipeline?
   cite_sources_at_end: True # Whether the sources used to produce an answer are appended to the end of each domain-specific AI answer. (NOTE this will have to be used in the generic thoughts pipeline.
   completion_mode: False
-  concurrency_limit: 100
+  concurrency_limit: 25
   use_stop: True
   subset_size: 30 # the generic system subset size affects the representation variation subset
   use_subset: False
@@ -177,7 +177,7 @@ factual_sft_settings:
   ]
   items_per_conversation: 3
   combine_sharegpt_target_pairs: 5
-dataset_context: US Army Field Manuals
+dataset_context: China and CCP Decision Making
 rag_data:
   rag_failure_percentage: 0.50
   rag_max_chunks: 3
