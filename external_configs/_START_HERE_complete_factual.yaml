@@ -17,13 +17,13 @@ no_flatten:
   - input_dirs
 
 model_auto_train: # this config uses presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
-  do_train: False # whether or not to actually do an automatic training run at the end, or if you want to manage it yourself
+  do_train: True # whether or not to actually do an automatic training run at the end, or if you want to manage it yourself
   runpod_api_key: dummy
   huggingface_token: dummy
   wandb_api_key: dummy
   pod_id: # For taking advantage of a preexisting pod
 model_auto_run: # !!ATTENTION!! Augmentoolkit can download and run the model that you just trained, automatically for you. To run it in the future, run either the llm_server or rag_server pipelines, which will start an LLM server on port 8003. The interface has a chat window that listens to this port and lets you converse with your custom model entirely from within Augmentoolkit, entirely locally. NOTE THAT between the original weights of the model, plus the quantized weights, this will take 22 gigabytes of additional disk space for a moment, before going back down to 7 gigabytes -- ensure you have enough room!
-  do_run: False
+  do_run: True
   cache_dir: ./cache
   server_type: normal # normal OR rag, only meaningfu lif do_run is on, defaults to normal
 
