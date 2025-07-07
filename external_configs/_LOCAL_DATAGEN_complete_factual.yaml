@@ -302,10 +302,10 @@ final_datasaving_settings:
   max_samples_per_dataset: 100000 # use to control absolutely absurd snowballing download sizes. The maximum number of rows per dataset to take.
   minimum_generic_sft: 2000000 # code sets the number of target generic sft tokens to max(minimum_generic_sft, the sum of the generic dataset percentages)
 model_training:
-  base_model: alpindale/Mistral-7B-v0.2-hf
-  pretrain_hub_model_id: !!PLACEHOLDER!!/mistrilitary-pretrain
+  base_model: Mistral-7B-instruct-v0.3
+  pretrain_hub_model_id: Heralax/Augmentoolkit-DataSpecialist-v0.1
   pretrain_hub_strategy: all_checkpoints
-  finetune_hub_model_id: !!PLACEHOLDER!!/mistrilitary-pretrain
+  finetune_hub_model_id: Heralax/Augmentoolkit-DataSpecialist-v0.1
   finetune_hub_strategy: all_checkpoints
   context_length: 10000
   wandb_project: test-project

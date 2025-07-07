@@ -299,15 +299,15 @@ final_datasaving_settings:
   max_samples_per_dataset: 100000 # use to control absolutely absurd snowballing download sizes. The maximum number of rows per dataset to take.
   minimum_generic_sft: 2000000 # code sets the number of target generic sft tokens to max(minimum_generic_sft, the sum of the generic dataset percentages)
 model_training:
-  base_model: alpindale/Mistral-7B-v0.2-hf
-  pretrain_hub_model_id: dummy/test-model-1-pretrain
+  base_model: alpindale/Mistral-7B-instruct-v0.3
+  pretrain_hub_model_id: Heralax/Augmentoolkit-DataSpecialist-v0.1
   pretrain_hub_strategy: all_checkpoints
-  finetune_hub_model_id: dummy/test-model-1-sft
+  finetune_hub_model_id: Heralax/Augmentoolkit-DataSpecialist-v0.1
   finetune_hub_strategy: all_checkpoints
   context_length: 10000
   wandb_project: test-project
   is_mistral_derived_model: True
-  other_pretrain_kwargs: # has to be a dict of some kind. So either {} or something like this. 12 is the default -- very high and it works, but overkill on decently-large sets like the one we are making here. The names are the same as the axolotl config args that the parameters override.
+  other_pretrain_kwargs: # has to be a dict of some kind. So either {} or something like this. 12 is the default -- very high and it works, but overkill on decently-large sets like the one we are making here. The names are the same as the lotlaxo config args that the parameters override.
     num_epochs: 5
   other_finetune_kwargs: {}
 do_not_use_llm_for_pdf_processing: True # !!ATTENTION!! Turn to "False" IF you are using an API **AND** The PDFs you are feeding into the pipeline are very hard to OCR and produce errors in extraction when doing so. See the note in the relevant part of the source code for why this is even an option.
