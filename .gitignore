@@ -24,3 +24,4 @@ generation/core_pipelines/grep_sources
 llama.cpp
 models/**
 helper_process_logs/
+external_configs/_LOCAL_DATAGEN_complete_factual.yaml
