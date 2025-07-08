@@ -1,0 +1,74 @@
+base_model: null
+tokenizer_type: AutoTokenizer
+model_type: AutoModelForCausalLM
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+datasets:
+- path: pretraining_subset_303572.jsonl
+  type: completion
+- path: axolotl_correction_conversations_strategic_culture.json
+  type: input_output
+- path: axolotl_rag_conversations_strategic_culture.jsonl
+  type: input_output
+- path: generic_sft_completion/Augmentoolkit-Augmentoolkit-Pippa-Thoughts_200000.jsonl
+  type: completion
+- path: generic_sft_completion/Augmentoolkit-Augmentoolkit-Bluemoon-1mil-thoughts_200000.jsonl
+  type: completion
+- path: generic_sft_completion/Augmentoolkit-Augmentoolkit-Generic-Grabbag-Thoughts_400000.jsonl
+  type: completion
+- path: generic_sft_completion/Augmentoolkit-Openthoughts-100mil-DifferentFormat_800000.jsonl
+  type: completion
+- path: generic_sft_completion/Augmentoolkit-Augmentoolkit-LMsys-800k-Thoughts_200000.jsonl
+  type: completion
+- path: generic_sft_completion/Augmentoolkit-Augmentoolkit-Capybara-2point5mil-Thoughts_200000.jsonl
+  type: completion
+dataset_prepared_path: last_finetune_prepared
+output_dir: ./finetune-model-output
+seed: 1337
+sequence_len: 5000
+sample_packing: true
+pad_to_sequence_len: false
+shuffle_merged_datasets: true
+gradient_accumulation_steps: 75
+micro_batch_size: 2
+eval_batch_size: 4
+num_epochs: 5
+optimizer: paged_adamw_8bit
+lr_scheduler: constant
+learning_rate: 2.0e-05
+noisy_embedding_alpha: 5
+weight_decay: 0
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: false
+gradient_checkpointing: true
+logging_steps: 1
+xformers_attention: false
+flash_attention: true
+chat_template: chatml
+auto_resume_from_checkpoints: false
+warmup_ratio: 0.1
+evals_per_epoch: 1
+val_set_size: 0.04
+saves_per_epoch: 1
+eval_sample_packing: false
+save_total_limit: 2
+special_tokens:
+  pad_token: <unk>
+use_liger_kernel: true
+plugins:
+- axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
+sequence_length: 10000
+wandb_project: test-project
+wandb_entity: ''
+wandb_watch: ''
+wandb_run_id: ''
+wandb_log_model: ''

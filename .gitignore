@@ -1,10 +1,11 @@
 .vscode
 .DS_Store
 _old_project
-outputs/*
+#outputs/*
 *.pyc
 **/__pycache__/
-
+outputs/my_first_dataset
+outputs/my_second_dataset
 **/*.pyc
 cache/*
 inputs/meta/*
@@ -24,4 +25,3 @@ generation/core_pipelines/grep_sources
 llama.cpp
 models/**
 helper_process_logs/
-external_configs/_LOCAL_DATAGEN_complete_factual.yaml
