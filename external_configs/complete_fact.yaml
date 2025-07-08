@@ -32,20 +32,20 @@ model_auto_run: # !!ATTENTION!! Augmentoolkit can download and run the model tha
 
 path:
   input_dirs:
-    - path: /Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/inputs/strategic_culture # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
-      variation_generation_counts: 4 # it is better to go overboard than not have enough data. "If you don't think you're laying it on thick, you're not laying it on thick enough" -- the model can handle it.
+    - path: augmentoolkit/inputs/strategic_culture_test_subset # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
+      variation_generation_counts: 1 # it is better to go overboard than not have enough data. "If you don't think you're laying it on thick, you're not laying it on thick enough" -- the model can handle it.
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
-      factual_gen_subset_size_per_way: 2000
+      factual_gen_subset_size_per_way: 10
       factual_gen_use_subset: False
-      rag_subset_size: 1500
+      rag_subset_size: 5
       rag_use_subset: True
-      correction_subset_size: 1500
+      correction_subset_size: 5
       correction_use_subset: True
-  output_dir: ./outputs/sc_dataset
+  output_dir: ./outputs/sc_dataset_small_test
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
-  number_of_factual_sft_generations_to_do: 2
+  number_of_factual_sft_generations_to_do: 1
   completion_mode: False
   remove_system_prompt_ratio: 0.2 # remove the system prompts from this % of the final domain data. Helps generalization.
   remove_thought_process_ratio: 0.2 # remove the thought process from this % of the final domain data. Helps generalization.
