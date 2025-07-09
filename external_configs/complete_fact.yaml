@@ -1,15 +1,5 @@
 pipeline: factual-datagen-pipeline
 
-# !!ATTENTION!! To set up llama.cpp and the custom datagen model, run `bash local_macos.sh` or `bash local_linux.sh` depending on your OS
-
-# Welcome to the config that will run your first Augmentoolkit pipeline!
-# This config is already configured to create a dataset based on some of the US army field manuals
-# Simply add your deepinfra API key (or change the provider to be local/some other provider) and run the pipeline to make your very own dataset and training configs for creating a domain expert!
-
-
-# The US Army field manuals were was chosen as a data source because 1) there are a lot of them, 2) they are modern, 3) they are all on the same subject, 4) they are publicly available.
-
-
 no_flatten:
   - factual_sft
   - template_kwargs
@@ -32,20 +22,20 @@ model_auto_run: # !!ATTENTION!! Augmentoolkit can download and run the model tha
 
 path:
   input_dirs:
-    - path: inputs/strategic_culture/test_subset # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
-      variation_generation_counts: 1 # it is better to go overboard than not have enough data. "If you don't think you're laying it on thick, you're not laying it on thick enough" -- the model can handle it.
+    - path: inputs/strategic_culture/ # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
+      variation_generation_counts: 4 # it is better to go overboard than not have enough data. "If you don't think you're laying it on thick, you're not laying it on thick enough" -- the model can handle it.
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
       factual_gen_subset_size_per_way: 10
       factual_gen_use_subset: False
-      rag_subset_size: 5
+      rag_subset_size: 20
       rag_use_subset: True
-      correction_subset_size: 5
+      correction_subset_size: 15
       correction_use_subset: True
-  output_dir: ./outputs/sc_dataset_small_test
+  output_dir: ./outputs/sc_dataset
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
-  number_of_factual_sft_generations_to_do: 1
+  number_of_factual_sft_generations_to_do: 2
   completion_mode: False
   remove_system_prompt_ratio: 0.2 # remove the system prompts from this % of the final domain data. Helps generalization.
   remove_thought_process_ratio: 0.2 # remove the thought process from this % of the final domain data. Helps generalization.
