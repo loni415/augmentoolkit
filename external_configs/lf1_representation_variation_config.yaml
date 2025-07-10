@@ -3,10 +3,10 @@ pipeline: repvar-pipeline
 api:
   small_api_key: ollama
   large_api_key: ollama 
-  small_base_url: http://127.0.0.1:8080/v1
-  large_base_url: http://127.0.0.1:8080/v1 # http://localhost:2242/v1
-  small_model: Augmentoolkit-DataSpecialist-v0.1-mlx-fp16
-  large_model: Augmentoolkit-DataSpecialist-v0.1-mlx-fp16
+  small_base_url: http://10.0.14.18:1234/v1
+  large_base_url: http://10.0.14.18:1234/v1 # http://localhost:2242/v1
+  small_model: augmentoolkit-dataspecialist-v0.1-mlx
+  large_model: augmentoolkit-dataspecialist-v0.1-mlx
   small_mode: api
   large_mode: api
 path:
@@ -16,7 +16,7 @@ path:
   default_prompts: ./prompts
 system:
   completion_mode: False
-  concurrency_limit: 30
+  concurrency_limit: 4
   use_stop: True
   subset_size: 30
   use_min_p: False
