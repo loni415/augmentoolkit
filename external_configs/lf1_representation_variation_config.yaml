@@ -3,10 +3,10 @@ pipeline: repvar-pipeline
 api:
   small_api_key: ollama
   large_api_key: ollama 
-  small_base_url: http://0.0.0.0:8082/v1
-  large_base_url: http://0.0.0.0:8082/v1 # http://localhost:2242/v1
-  small_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
-  large_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
+  small_base_url: http://127.0.0.1:8080/v1
+  large_base_url: http://127.0.0.1:8080/v1 # http://localhost:2242/v1
+  small_model: Augmentoolkit-DataSpecialist-v0.1-mlx-fp16
+  large_model: Augmentoolkit-DataSpecialist-v0.1-mlx-fp16
   small_mode: api
   large_mode: api
 path:
