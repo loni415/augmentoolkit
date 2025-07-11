@@ -2,7 +2,7 @@
 pipeline_order:
   #- node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
   - node: repvar-pipeline
-    config: external:repvar-config # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
+    config: external:lf1_representation_variation_config.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
   #- node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
   #  config: external:factual_datagen_config.yaml
 
