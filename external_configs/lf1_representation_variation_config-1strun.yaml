@@ -5,7 +5,7 @@ api:
   large_api_key: ollama 
   small_base_url: http://localhost:11434/v1 #lm studio http://10.0.14.18:1234/v1
   large_base_url: http://localhost:11434/v1 # http://localhost:2242/v1
-  small_model: granite3.3:8b
+  small_model: hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest
   large_model: phi4-reasoning:14b-plus-fp16
   small_mode: api
   large_mode: api
