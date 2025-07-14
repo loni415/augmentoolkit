@@ -24,7 +24,8 @@ system:
   chunk_size: 2000
   keep_system_prompt: True
   variation_generator_count: 4 # higher = more variations! ideally even if the same prompt is selected more than once, the variations will still be significant.
-  make_inferred_facts: False #reqs reasoning model
+  make_inferred_facts: False
+  timeout: 1000 #reqs reasoning model
 dataset:
   dataset_context: China policy decision making and strategic culture
   include_context_in_dataset: True
