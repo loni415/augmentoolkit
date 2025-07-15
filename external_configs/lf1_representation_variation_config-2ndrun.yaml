@@ -18,7 +18,7 @@ system:
   completion_mode: False
   concurrency_limit: 2
   use_stop: True
-  subset_size: 5
+  subset_size: 30
   use_min_p: False
   use_subset: False # use_subset is off
   chunk_size: 1500

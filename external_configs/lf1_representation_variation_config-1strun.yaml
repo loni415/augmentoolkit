@@ -16,12 +16,12 @@ path:
   default_prompts: /Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/generation/core_pipelines/representation_variation/prompts_local
 system:
   completion_mode: False
-  concurrency_limit: 4
+  concurrency_limit: 2
   use_stop: True
   subset_size: 30
   use_min_p: False
   use_subset: False # use_subset is off
-  chunk_size: 2000
+  chunk_size: 1500
   keep_system_prompt: True
   variation_generator_count: 4 # higher = more variations! ideally even if the same prompt is selected more than once, the variations will still be significant.
   make_inferred_facts: False
