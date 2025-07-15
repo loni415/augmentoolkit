@@ -11,7 +11,7 @@ api:
   large_mode: api
 path:
   input_dir: ./inputs/strategic_culture
-  output_dir: ./outputs/repvar_2ndrun-test
+  output_dir: ./outputs/repvar_2ndrun-sc
   prompts: /Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local/
   default_prompts: Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local/
 system:
@@ -20,7 +20,7 @@ system:
   use_stop: True
   subset_size: 5
   use_min_p: False
-  use_subset: True # use_subset is off
+  use_subset: False # use_subset is off
   chunk_size: 1500
   keep_system_prompt: True
   variation_generator_count: 4 # higher = more variations! ideally even if the same prompt is selected more than once, the variations will still be significant.
