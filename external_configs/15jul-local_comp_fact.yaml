@@ -50,6 +50,9 @@ system:
   subset_size: 20 #30
   use_subset: True
   chunk_size: 1500 #4000
+  debug_mode: true
+  verbose_output: true
+  save_api_response: true
   what_percent_of_sft_is_pretrain: # use either this or num_tokens_pretrain_in_sft. The latter sets it directly, this one sets it relative to the number of SFT tokens.
   num_tokens_pretraining_in_sft: 2000000
   shared_instruction: |
@@ -294,9 +297,9 @@ final_datasaving_settings:
   minimum_generic_sft: 2000000 # code sets the number of target generic sft tokens to max(minimum_generic_sft, the sum of the generic dataset percentages)
 model_training:
   base_model: alpindale/Mistral-7B-v0.2-hf
-  pretrain_hub_model_id: !!PLACEHOLDER!!/mistrilitary-pretrain
+  pretrain_hub_model_id: /mistrilitary-pretrain
   pretrain_hub_strategy: all_checkpoints
-  finetune_hub_model_id: !!PLACEHOLDER!!/mistrilitary-pretrain
+  finetune_hub_model_id: /mistrilitary-pretrain
   finetune_hub_strategy: all_checkpoints
   context_length: 10000
   wandb_project: test-project
