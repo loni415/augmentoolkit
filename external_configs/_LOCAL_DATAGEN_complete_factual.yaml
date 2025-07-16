@@ -59,6 +59,9 @@ system:
   subset_size: 300
   use_subset: False
   chunk_size: 1024
+  debug_mode: true
+  verbose_output: true
+  save_api_response: true
   what_percent_of_sft_is_pretrain: # use either this or num_tokens_pretrain_in_sft. The latter sets it directly, this one sets it relative to the number of SFT tokens.
   num_tokens_pretraining_in_sft: 2000000
   shared_instruction: |

@@ -22,7 +22,7 @@ model_auto_run: # !!ATTENTION!! Augmentoolkit can download and run the model tha
 
 path:
   input_dirs: # NOTE that the first input dir's final_system_prompt_additional_context is the default one used when chatting, and is the ones saved to the prompt.txt file in the output dir. Neither of these has any effect on the model, but does effect the defaults and helpful presets if you decide to use it here.
-    - path: ./inputs/secondme_knowledge # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
+    - path: ./inputs/strategic_culture # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
       variation_generation_counts: 4
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
       factual_gen_subset_size_per_way: 20

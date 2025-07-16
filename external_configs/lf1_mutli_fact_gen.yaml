@@ -1,11 +1,11 @@
 pipeline: recall-multi-source-pipeline
 
 api:
-  large_model: phi4-reasoning:14b-plus-fp16
-  large_api_key: ollama
+  large_model: llama3.3:70b-instruct-q4_K_M
   large_base_url: http://localhost:11434/v1
+  large_api_key: ollama
   large_mode: api
-  small_model: hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest
+  small_model: llama3.3:70b-instruct-q4_K_M
   small_base_url: http://localhost:11434/v1
   small_api_key: ollama
   small_mode: api
@@ -14,10 +14,10 @@ huggingface:
   private: False
   push_to_hub: False
 path:
-  default_prompts: /Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/generation/core_pipelines/recall_multiple_sources/prompts_local
+  default_prompts: ./prompts_local
   input_dir: ./inputs/strategic_culture
-  output_dir: ./outputs/multi_source_sc_test
-  prompts: /Users/lukasfiller/Library/CloudStorage/OneDrive-VannevarLabs/lf_dev/augmentoolkit/generation/core_pipelines/recall_multiple_sources/prompt_overrides_local # !!ATTENTION!! with this pipeline, and the multi recall pipeline, you are *STRONGLY* encouraged to use one of the prompt overrides for the `prompts` argument. The version of the `qatuples_gen_no_filenames` prompt in the default prompts folder is unlikely to be the most modern one. Please use one of the prompt overrides so that this specific prompt uses a modern version (the rest of the prompts in `./prompts` are fine and may be used freely, hence why the default prompts folder is ./prompts in all instances of this pipeline)
+  output_dir: ./outputs/multi_source_sc_test/
+  prompts: ./prompt_overrides_local/openended
   #openended vague negative hallucination followup
 phase:
   phase_index: 3
@@ -26,6 +26,9 @@ system:
   chunk_size: 1500
   completion_mode: False
   concurrency_limit: 2
+  debug_mode: true
+  verbose_output: true
+  save_api_response: true
   conversation_instructions: For this conversation, you are generating a chat between
     a generalist, generic AI assistant, and a human.
   do_not_use_system_prompts: True
