@@ -26,7 +26,7 @@ path:
     - path: ./inputs/strategic_culture # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
       variation_generation_counts: 2 # 4 it is better to go overboard than not have enough data. "If you don't think you're laying it on thick, you're not laying it on thick enough" -- the model can handle it.
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
-      factual_gen_subset_size_per_way: 20 #check 2000?
+      factual_gen_subset_size_per_way: 20 #check 2000?cond
       factual_gen_use_subset: False #check
       rag_subset_size: 20 #1500
       rag_use_subset: True
