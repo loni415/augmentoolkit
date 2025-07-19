@@ -513,7 +513,7 @@ if [ ! -f "$LLAMA_SERVER_BINARY_PATH" ]; then
 
     NUM_CORES=$(sysctl -n hw.ncpu 2>/dev/null || echo 4) # Default to 4 if sysctl fails
     
-    cmake -B build # Metal is enabled by default on macOS
+    cmake -B build -D CMAKE_INSTALL_RPATH=\$ORIGIN # Metal is enabled by default on macOS
     if [ $? -ne 0 ]; then
         echo "ERROR: cmake configuration for llama.cpp failed."
         cd "$SCRIPT_DIR" # Return to original script directory
