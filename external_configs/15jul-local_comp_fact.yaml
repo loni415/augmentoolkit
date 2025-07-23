@@ -67,8 +67,8 @@ pdf_cleaning:
   pdf_cleaning_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   pdf_cleaning_small_mode: api
   pdf_cleaning_large_mode: api
-  pdf_cleaning_small_base_url: http://10.0.14.4:1234/v1
-  pdf_cleaning_large_base_url: http://10.0.14.4:1234/v1
+  pdf_cleaning_small_base_url: http://10.0.14.99:1234/v1
+  pdf_cleaning_large_base_url: http://10.0.14.99:1234/v1
   pdf_cleaning_small_api_key: notused
   pdf_cleaning_large_api_key: notused
   pdf_cleaning_use_stop: True
@@ -84,8 +84,8 @@ representation_variation:
   representation_variation_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   representation_variation_small_mode: api
   representation_variation_large_mode: api
-  representation_variation_small_base_url: http://10.0.14.4:1234/v1
-  representation_variation_large_base_url: http://10.0.14.4:1234/v1
+  representation_variation_small_base_url: http://10.0.14.99:1234/v1
+  representation_variation_large_base_url: http://10.0.14.99:1234/v1
   representation_variation_small_api_key: notused # API settings are separated by pipeline for greater configuration
   representation_variation_large_api_key: notused
   representation_variation_cost_small_input: 0.15
@@ -152,11 +152,11 @@ factual_sft_settings:
   factual_completion_mode: False
   factual_small_model: augmentoolkit-dataspecialist-v0.1-mlx
   factual_small_api_key: notused
-  factual_small_base_url: http://10.0.14.4:1234/v1
+  factual_small_base_url: http://10.0.14.99:1234/v1
   factual_small_mode: api
   factual_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   factual_large_api_key: notused
-  factual_large_base_url: http://10.0.14.4:1234/v1
+  factual_large_base_url: http://10.0.14.99:1234/v1
   factual_large_mode: api
   factual_cost_per_million_small_input: 0.15
   factual_cost_per_million_small_output: 0.20
@@ -214,11 +214,11 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
   rag_skip_filter_chunks: False
   rag_small_model: augmentoolkit-dataspecialist-v0.1-mlx
   rag_small_api_key: notused
-  rag_small_base_url: http://10.0.14.4:1234/v1
+  rag_small_base_url: http://10.0.14.99:1234/v1
   rag_small_mode: api
   rag_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   rag_large_api_key: notused
-  rag_large_base_url: http://10.0.14.4:1234/v1
+  rag_large_base_url: http://10.0.14.99:1234/v1
   rag_large_mode: api
   rag_cost_per_million_small_input: 0.15
   rag_cost_per_million_small_output: 0.20
@@ -231,11 +231,11 @@ transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain
   transform_generic_data_use_stop: True
   transform_generic_data_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   transform_generic_data_large_api_key: notused
-  transform_generic_data_large_base_url: http://10.0.14.4:1234/v1
+  transform_generic_data_large_base_url: http://10.0.14.99:1234/v1
   transform_generic_data_large_mode: api
   transform_generic_data_small_model: augmentoolkit-dataspecialist-v0.1-mlx
   transform_generic_data_small_api_key: notused
-  transform_generic_data_small_base_url: http://10.0.14.4:1234/v1
+  transform_generic_data_small_base_url: http://10.0.14.99:1234/v1
   transform_generic_data_small_mode: api
   transform_generic_cot_preface: "Thought Process:"
   transform_generic_cot_suffix: "\nAnswer:"
@@ -250,11 +250,11 @@ correction_pipeline:
   correction_chunk_size: 1500 #1500
   correction_small_model: augmentoolkit-dataspecialist-v0.1-mlx
   correction_small_api_key: notused
-  correction_small_base_url: http://10.0.14.4:1234/v1
+  correction_small_base_url: http://10.0.14.99:1234/v1
   correction_small_mode: api
   correction_large_model: augmentoolkit-dataspecialist-v0.1-mlx
   correction_large_api_key: notused
-  correction_large_base_url: http://10.0.14.4:1234/v1
+  correction_large_base_url: http://10.0.14.99:1234/v1
   correction_large_mode: api
   correction_cost_per_million_small_input: 0.15
   correction_cost_per_million_small_output: 0.20
