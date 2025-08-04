@@ -23,7 +23,7 @@ path_aliases:
 
   # generation/core_composition/complete_factual_dataset
   factual-datagen-folder: gen_comp:complete_factual_dataset
-  factual-datagen-pipeline:   gen_comp:complete_factual_dataset/complete_factual_dataset.factual_datagen_full
+  factual-datagen-pipeline: gen_comp:complete_factual_dataset/complete_factual_dataset.factual_datagen_full
   factual-datagen-config: gen_comp:complete_factual_dataset/config.yaml
 
   # generation/core_composition/meta_datagen
