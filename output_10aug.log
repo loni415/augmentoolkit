@@ -30624,3 +30624,117 @@ Processing 825 items...
 Step: factual_questions:   3%|▎         | 27/825 [06:42<3:08:41, 14.19s/it]
   3%|▎         | 27/825 [06:42<3:08:40, 14.19s/it][A2025-08-11 10:02:28,528 - root - INFO - RAG Query for 'The United States has been proactively preparing f...': Retrieved 3 documents.
 2025-08-11 10:02:33,402 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+QGenStep: Finished processing item.
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+[Timeout] A task exceeded the timeout limit.
+QGenStep: Finished processing item.
+[Timeout] A task exceeded the timeout limit.
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+FAILED TO GENERATE QUESTIONS!
+QGenStep: Finished processing item.
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/tasks.py", line 476, in wait_for
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 255, in <module>
+    main()
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 249, in main
+    run_pipeline(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 122, in run_pipeline
+    run_pipeline_config(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 158, in run_pipeline_config
+    asyncio.run(function(**flattened_config))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 189, in run
+    with Runner(debug=debug) as runner:
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 63, in __exit__
+    self.close()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 71, in close
+    _cancel_all_tasks(loop)
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 201, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 641, in run_until_complete
+    self.run_forever()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 608, in run_forever
+    self._run_once()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 1936, in _run_once
+    handle._run()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/recall_multiple_sources/multi_source_recall.py", line 307, in run_task_with_limit
+    return await asyncio.wait_for(task, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/tasks.py", line 479, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/augmentoolkit/generation_functions/one_to_many_step.py", line 405, in run
+    await self.generate_data(
+  File "/Users/lukasfiller/dev/augmentoolkit/augmentoolkit/generation_functions/pipeline_step_class.py", line 257, in generate_data
+    result, full_output, full_response, full_input = await generator.generate(
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/augmentoolkit/generation_functions/generation_step_class.py", line 177, in generate
+    ret = self.output_processor(response)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/recall_multiple_sources/multi_source_helpers.py", line 204, in extract_questions_from_response
+    questions = extract_qa_tuples(generation)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/recall_multiple_sources/multi_source_helpers.py", line 56, in extract_qa_tuples
+    matches = re.findall(
+              ^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/re/__init__.py", line 216, in findall
+    return _compile(pattern, flags).findall(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
