@@ -12,13 +12,13 @@ api:
 path:
   default_prompts: ./prompts
   input_dir: ./inputs/strategic_culture
-  output_dir: ./outputs/correction_data
+  output_dir: ./outputs/correction_data_2
   prompts: ./prompts
 system:
   completion_mode: False
   concurrency_limit: 2
   use_stop: True
-  subset_size: 10
+  subset_size: 500
   use_min_p: False
   use_subset: True # !!ATTENTION!! use_subset is on; you will probably want to have use_subset on during testing and development to save money. But off when generating stuff to actually train on.
   chunk_size: 2000

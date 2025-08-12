@@ -1,0 +1,106 @@
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /Users/lukasfiller/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+Running pipelines defined in super_config.yaml 'pipeline_order'.
+Running pipeline from super_config:
+  Node: rag-data-pipeline
+  Config: external:11aug_rag_data.yaml
+  Parameters: {}
+FLATTENED
+{'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_mode': 'api', 'large_mode': 'api'}
+FLATTENED
+{'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/rag_data', 'prompts': './prompts', 'default_prompts': './prompts'}
+FLATTENED
+{'skip_filter_chunks': False}
+FLATTENED
+{'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 20, 'use_subset': True, 'chunk_size': 3000, 'rag_failure_percentage': 0.4, 'rag_max_chunks': 3, 'final_assistant_prompts': ['You are a helpful AI assistant specializing in !!PLACEHOLDER!!. Use a combination of your own knowledge and the following sources:\n{data}', '{data}\nTask is to ANSWER QUESTIONS primarily about !!PLACEHOLDER!!. Use both the information and your knowledge to answer the questions.', 'Use some of the wisdom which follows to be helpful, as well as your own knowledge. As a supremely intelligent domain expert AI assistant with the specific specialization in !!PLACEHOLDER!!, you are able to answer questions about !!PLACEHOLDER!!.\n{data}\nAnswer questions according to your knowledge + the context.', 'u r an AI !!PLACEHOLDER!! expert with context. {data}', 'YOU ARE AN EXCEPTIONAL ARTIFICIAL INTELLIGENCE ASSISTANT with DEEP EXPERTISE in the field of !!PLACEHOLDER!!. Here is some relevant information:\n{data}', 'As a knowledgeable and compassionate AI assistant focused on !!PLACEHOLDER!!, you shall provide informative responses using both your knowledge and this context:\n{data}', '{context} specialist AI. Use this information plus your knowledge:\n{data}', 'You possess extraordinary knowledge about !!PLACEHOLDER!!. Consider this information:\n{data}\nAnswer questions using both the context and your knowledge.', "ai assistant for !!PLACEHOLDER!! stuff. here's some helpful info:\n{data}"], 'system_format': 'Instruction: {{system}} **Finished.**', 'user_format': 'Human: {{user}} **Finished.**', 'assistant_format': 'AI: {{assistant}} **Finished.**', 'bos': '<s>', 'num_items_per_group': 3}
+FLATTENED
+{'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
+FLATTENED
+{'do_meta_datagen': True, 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None}
+FLATTENED
+{'pipeline': 'rag-data-pipeline', 'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_mode': 'api', 'large_mode': 'api', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/rag_data', 'prompts': './prompts', 'default_prompts': './prompts', 'skip_filter_chunks': False, 'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 20, 'use_subset': True, 'chunk_size': 3000, 'rag_failure_percentage': 0.4, 'rag_max_chunks': 3, 'final_assistant_prompts': ['You are a helpful AI assistant specializing in !!PLACEHOLDER!!. Use a combination of your own knowledge and the following sources:\n{data}', '{data}\nTask is to ANSWER QUESTIONS primarily about !!PLACEHOLDER!!. Use both the information and your knowledge to answer the questions.', 'Use some of the wisdom which follows to be helpful, as well as your own knowledge. As a supremely intelligent domain expert AI assistant with the specific specialization in !!PLACEHOLDER!!, you are able to answer questions about !!PLACEHOLDER!!.\n{data}\nAnswer questions according to your knowledge + the context.', 'u r an AI !!PLACEHOLDER!! expert with context. {data}', 'YOU ARE AN EXCEPTIONAL ARTIFICIAL INTELLIGENCE ASSISTANT with DEEP EXPERTISE in the field of !!PLACEHOLDER!!. Here is some relevant information:\n{data}', 'As a knowledgeable and compassionate AI assistant focused on !!PLACEHOLDER!!, you shall provide informative responses using both your knowledge and this context:\n{data}', '{context} specialist AI. Use this information plus your knowledge:\n{data}', 'You possess extraordinary knowledge about !!PLACEHOLDER!!. Consider this information:\n{data}\nAnswer questions using both the context and your knowledge.', "ai assistant for !!PLACEHOLDER!! stuff. here's some helpful info:\n{data}"], 'system_format': 'Instruction: {{system}} **Finished.**', 'user_format': 'Human: {{user}} **Finished.**', 'assistant_format': 'AI: {{assistant}} **Finished.**', 'bos': '<s>', 'num_items_per_group': 3, 'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4, 'do_meta_datagen': True, 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None}
+Warning: pyfiglet not installed. Install with 'pip install pyfiglet' for formatted banners.
+NOTE: Audio/video processing requires librosa, soundfile, moviepy, and transformers. If you want to use videos as input for a pipeline, please install them. Otherwise, disregard this message.
+Successfully connected to Redis at localhost:6379/0
+Running async pipeline: generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.rag_data_pipeline
+Welcome to your RAG reasoning multiturn data generation pipeline!
+Using config...
+Loading cached read results from ./outputs/rag_data/read_cache_363be8ebcc69828e0258e34badaadb09.json
+Loading cached chunks from ./outputs/rag_data/chunk_cache_7699571edf0f8cb96fc23412b1ab3d2c_size3000.json
+Loading file at ./outputs/rag_data/rag_convs.json
+Loaded!
+  0%|          | 0/20 [00:00<?, ?it/s]100%|██████████| 20/20 [00:00<00:00, 10989.92it/s]
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data/rag_convs.json
+Loading file at ./outputs/rag_data/rag_failed_convs.json
+Loaded!
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data/rag_failed_convs.json
+Loading file at ./outputs/rag_data/rag_success_convs.json
+Loaded!
+  0%|          | 0/8 [00:00<?, ?it/s]100%|██████████| 8/8 [00:00<00:00, 18436.50it/s]
+Traceback (most recent call last):
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 158, in run_pipeline_config
+    asyncio.run(function(**flattened_config))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.py", line 485, in rag_data_pipeline
+    for idx, prompt in enumerate(meta_datagen_extras):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data/rag_success_convs.json
+
+=== Pipeline Cost Efficiency Metrics ===
+Original input tokens: 34,173
+Total model input tokens: 240,262
+Total model output tokens: 12,202
+Total cost: $0.04
+Cost per million original tokens: $1.14
+Input-to-model token ratio: 7.03x
+
+=== Component Breakdown ===
++-------------+------------------+-----------------+--------------+---------------+--------------+-------------------+
+| Component   | Input Tokens     | Output Tokens   | Input Cost   | Output Cost   | Total Cost   | % of Total Cost   |
++=============+==================+=================+==============+===============+==============+===================+
+| Small model | 122,161 (50.8%)  | 6,450 (52.9%)   | $0.01        | $0.00         | $0.01        | 24.3%             |
++-------------+------------------+-----------------+--------------+---------------+--------------+-------------------+
+| Large model | 118,101 (49.2%)  | 5,752 (47.1%)   | $0.03        | $0.00         | $0.03        | 75.7%             |
++-------------+------------------+-----------------+--------------+---------------+--------------+-------------------+
+| TOTAL       | 240,262 (100.0%) | 12,202 (100.0%) | $0.04        | $0.00         | $0.04        | 100.0%            |
++-------------+------------------+-----------------+--------------+---------------+--------------+-------------------+
+Error running async pipeline generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.rag_data_pipeline: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 255, in <module>
+    main()
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 249, in main
+    run_pipeline(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 122, in run_pipeline
+    run_pipeline_config(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 158, in run_pipeline_config
+    asyncio.run(function(**flattened_config))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.py", line 485, in rag_data_pipeline
+    for idx, prompt in enumerate(meta_datagen_extras):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable

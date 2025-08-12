@@ -11,7 +11,7 @@ api:
   large_mode: api
 path:
   input_dir: ./inputs/strategic_culture
-  output_dir: ./outputs/rag_data
+  output_dir: ./outputs/rag_data_2
   prompts: ./prompts
   default_prompts: ./prompts
 skip:
@@ -20,7 +20,7 @@ system:
   completion_mode: False
   concurrency_limit: 2
   use_stop: True
-  subset_size: 10 
+  subset_size: 50 
   use_subset: True # !!ATTENTION!! use subset is on; you will probably want to have use_subset on during testing and development to save money.
   chunk_size: 3000
   rag_failure_percentage: 0.4
@@ -68,7 +68,7 @@ cost:
   cost_per_million_large_input: 0.23
   cost_per_million_large_output: 0.40
 meta_datagen:
-  do_meta_datagen: False
+  do_meta_datagen: []
   meta_datagen_keys:
     - masked_conversation_details
     - judgement_details

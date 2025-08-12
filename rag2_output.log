@@ -1,0 +1,216 @@
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /Users/lukasfiller/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+Running pipelines defined in super_config.yaml 'pipeline_order'.
+Running pipeline from super_config:
+  Node: rag-data-pipeline
+  Config: external:11aug_rag_data.yaml
+  Parameters: {}
+FLATTENED
+{'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_mode': 'api', 'large_mode': 'api'}
+FLATTENED
+{'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/rag_data_2', 'prompts': './prompts', 'default_prompts': './prompts'}
+FLATTENED
+{'skip_filter_chunks': False}
+FLATTENED
+{'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 50, 'use_subset': True, 'chunk_size': 3000, 'rag_failure_percentage': 0.4, 'rag_max_chunks': 3, 'final_assistant_prompts': ['You are a helpful AI assistant specializing in !!PLACEHOLDER!!. Use a combination of your own knowledge and the following sources:\n{data}', '{data}\nTask is to ANSWER QUESTIONS primarily about !!PLACEHOLDER!!. Use both the information and your knowledge to answer the questions.', 'Use some of the wisdom which follows to be helpful, as well as your own knowledge. As a supremely intelligent domain expert AI assistant with the specific specialization in !!PLACEHOLDER!!, you are able to answer questions about !!PLACEHOLDER!!.\n{data}\nAnswer questions according to your knowledge + the context.', 'u r an AI !!PLACEHOLDER!! expert with context. {data}', 'YOU ARE AN EXCEPTIONAL ARTIFICIAL INTELLIGENCE ASSISTANT with DEEP EXPERTISE in the field of !!PLACEHOLDER!!. Here is some relevant information:\n{data}', 'As a knowledgeable and compassionate AI assistant focused on !!PLACEHOLDER!!, you shall provide informative responses using both your knowledge and this context:\n{data}', '{context} specialist AI. Use this information plus your knowledge:\n{data}', 'You possess extraordinary knowledge about !!PLACEHOLDER!!. Consider this information:\n{data}\nAnswer questions using both the context and your knowledge.', "ai assistant for !!PLACEHOLDER!! stuff. here's some helpful info:\n{data}"], 'system_format': 'Instruction: {{system}} **Finished.**', 'user_format': 'Human: {{user}} **Finished.**', 'assistant_format': 'AI: {{assistant}} **Finished.**', 'bos': '<s>', 'num_items_per_group': 3}
+FLATTENED
+{'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
+FLATTENED
+{'do_meta_datagen': [], 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None}
+FLATTENED
+{'pipeline': 'rag-data-pipeline', 'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_mode': 'api', 'large_mode': 'api', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/rag_data_2', 'prompts': './prompts', 'default_prompts': './prompts', 'skip_filter_chunks': False, 'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 50, 'use_subset': True, 'chunk_size': 3000, 'rag_failure_percentage': 0.4, 'rag_max_chunks': 3, 'final_assistant_prompts': ['You are a helpful AI assistant specializing in !!PLACEHOLDER!!. Use a combination of your own knowledge and the following sources:\n{data}', '{data}\nTask is to ANSWER QUESTIONS primarily about !!PLACEHOLDER!!. Use both the information and your knowledge to answer the questions.', 'Use some of the wisdom which follows to be helpful, as well as your own knowledge. As a supremely intelligent domain expert AI assistant with the specific specialization in !!PLACEHOLDER!!, you are able to answer questions about !!PLACEHOLDER!!.\n{data}\nAnswer questions according to your knowledge + the context.', 'u r an AI !!PLACEHOLDER!! expert with context. {data}', 'YOU ARE AN EXCEPTIONAL ARTIFICIAL INTELLIGENCE ASSISTANT with DEEP EXPERTISE in the field of !!PLACEHOLDER!!. Here is some relevant information:\n{data}', 'As a knowledgeable and compassionate AI assistant focused on !!PLACEHOLDER!!, you shall provide informative responses using both your knowledge and this context:\n{data}', '{context} specialist AI. Use this information plus your knowledge:\n{data}', 'You possess extraordinary knowledge about !!PLACEHOLDER!!. Consider this information:\n{data}\nAnswer questions using both the context and your knowledge.', "ai assistant for !!PLACEHOLDER!! stuff. here's some helpful info:\n{data}"], 'system_format': 'Instruction: {{system}} **Finished.**', 'user_format': 'Human: {{user}} **Finished.**', 'assistant_format': 'AI: {{assistant}} **Finished.**', 'bos': '<s>', 'num_items_per_group': 3, 'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4, 'do_meta_datagen': [], 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None}
+Warning: pyfiglet not installed. Install with 'pip install pyfiglet' for formatted banners.
+NOTE: Audio/video processing requires librosa, soundfile, moviepy, and transformers. If you want to use videos as input for a pipeline, please install them. Otherwise, disregard this message.
+Successfully connected to Redis at localhost:6379/0
+Running async pipeline: generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.rag_data_pipeline
+Welcome to your RAG reasoning multiturn data generation pipeline!
+Using config...
+Checking extension
+.txt
+Checking extension
+.md
+Checking extension
+.pdf
+Checking extension
+.docx
+Checking extension
+.epub
+Checking extension
+.html
+Checking extension
+.jsonl
+Source texts found:
+["./inputs/strategic_culture/Matsuda - China's Strategic Culture Hypothesis 2022.txt", './inputs/strategic_culture/CCP Grand Strategy, Goals, Priorities, Sources Notes MAR2024.txt', './inputs/strategic_culture/Jonghyuk - Understanding China SC Clash of Realpolitik Cultural Moralism-cl.txt', './inputs/strategic_culture/Zhang - China Strategic Culture 2002-cl.txt', './inputs/strategic_culture/glenn- strategic culture&realism-cl.txt', './inputs/strategic_culture/Scobell - China s Real Strategic Culture A Great Wall of the Imagination-cl.txt', './inputs/strategic_culture/dis_ch7_1.txt', './inputs/strategic_culture/dis_ch5_2.txt', './inputs/strategic_culture/Munro - PRC Identity Historical Lens (JAMS)-cl.txt', './inputs/strategic_culture/dis_ch1_3.txt', './inputs/strategic_culture/dis_ch3_3.txt', './inputs/strategic_culture/ball-strategic culture in asia pacific-cleaned.txt', "./inputs/strategic_culture/Behind the Official Narrative China's Strategic Culture in Perspective - Chris Ford Interview.txt", './inputs/strategic_culture/dis_ch2_2.txt', './inputs/strategic_culture/dis_ch8_1.txt', './inputs/strategic_culture/2023-08-29_Kuznar-Strategic-Culture_final3_2-cl.txt', './inputs/strategic_culture/China Strategic Culture Hypothesis - Yasuhiro Matsuda-cl.txt', './inputs/strategic_culture/scobell - china&strategic culture-cl.txt', './inputs/strategic_culture/Ford - Realpolitik with Chinese Characteristics 2016.txt', './inputs/strategic_culture/Kuznar - Strategic Culture 2023.md', './inputs/strategic_culture/2021-10-12 Lectures Joint Campaign Information Operations CASI_EN.md', './inputs/strategic_culture/CHN_Cognitive_Weaponization_Cognitive_Warfare_Artificial_Intelligence_University_International_Relations_Sep2024-2_llama-parse_en.md', './inputs/strategic_culture/PRC Negotiating Behavior 1995 RAND.md', './inputs/strategic_culture/Despite the Cultural Revolution Confucius Still Walks the Chinese Corridors of Power_en.md', './inputs/strategic_culture/2022-08-12 Lectures on the Science of Space Operations.md', './inputs/strategic_culture/CCP_Decision_Making_Xi_Chapter1_Feb2025_2.md', './inputs/strategic_culture/Hui-Confucian-pacifism-or-Confucian-Confusion-Copy.md', './inputs/strategic_culture/CNA - 20230901_PLA Doctrine Concept 2023.md', './inputs/strategic_culture/1 CCP Confucianism vs. Legalism chapter.md', './inputs/strategic_culture/Building cultural soft power in line with a world-class army 2024_zh.md', './inputs/strategic_culture/NBR-China_Vision_New_Order_Jan2020.md', './inputs/strategic_culture/first_commander_political.md', './inputs/strategic_culture/Exploring the spirit of struggle among party members and cadres in the new era 2021_en.pdf', './inputs/strategic_culture/a survey of new chinas national defense policy 2020_en.pdf', './inputs/strategic_culture/The History and New Thinking of National Security Studies Discipline Construction_Liu Yuejin_EN.pdf', './inputs/strategic_culture/Kennedy - CMSI 40 - Onboard Political Control (2024).pdf', './inputs/strategic_culture/Changes Chinese News Commentary Media Convergence  Based on Interviews 17 Media Commentators 2015_en.pdf', './inputs/strategic_culture/PLA Daily - How dev concept warfare_FEB2023_en.pdf', './inputs/strategic_culture/Document 9 - 2013_en-cl.docx', './inputs/strategic_culture/The United States SCS Current Sino-US Relations_en.docx', './inputs/strategic_culture/analysis of the psychological elements of decision-making of decision makers in strategic deterrence target countries_en_ppocr.docx', './inputs/strategic_culture/Mahnken - Secrecy & Stratagem-cl.docx', "./inputs/strategic_culture/Analyzing People's War in the Perspective of Hybrid Warfare_en-cl.docx", './inputs/strategic_culture/Special Party Lesson 7_ Discipline and Work Style of the Communist Party of China_en.docx', './inputs/strategic_culture/A powerful ideological weapon for building a financial power_en_JAN2024-cl.docx', './inputs/strategic_culture/Achievements National Defense Military Reform since 3rd Plenary 18th CPC Central Committee_en-cl.docx', './inputs/strategic_culture/Meaning of CPC Newest Regulation Military Political Work in 2021_en.docx', './inputs/strategic_culture/America’s Cognitive Warfare Against China_en-cl.docx', './inputs/strategic_culture/Proposal of the People’s Republic of China\u2002on the Reform and Development of Global Governance 2023_en.docx', './inputs/strategic_culture/Qiushi- Pushing forward the cause of strengthening the military 2024_en-cl.docx', './inputs/strategic_culture/Jiang Shigong 10 Crucial Years PRC Views US Policy Changes.docx', './inputs/strategic_culture/small_state_diplo_en_ocr2.docx', './inputs/strategic_culture/PD - Implications of Enhancing International Discourse Power US dominance (2021)_en.docx', './inputs/strategic_culture/Kaufman - China’s Discourse of “Civilization”_ Visions of Past, Present, and Future 2018-cl (1).docx', './inputs/strategic_culture/Hu Bo_ The Peculiarities and Risks of Sino-US Strategic Competition_en-cl.docx', './inputs/strategic_culture/Parton - neogitating PRC considerations (2023)-cl.docx', './inputs/strategic_culture/Stone_ComparativeStrategicCulture-cl.docx', './inputs/strategic_culture/Unconventional Wars Evolution of War_RenDa_17JUN22_en.docx', './inputs/strategic_culture/Internal Regs CCP p1_2022_en-cl.docx', './inputs/strategic_culture/Lantis_Strategic Culture and Natl security Policy_2002-cl.docx', './inputs/strategic_culture/Science of Strategy 2001 (English).docx', "./inputs/strategic_culture/Yang Guangbin_ China's Tianxia and Western International Perspectives -the New Form of Human Civilization (2024)_en-cl.docx", './inputs/strategic_culture/PLA_Command_Structure_Analysis_Mar2025_en 2.docx']
+Reading:   0%|          | 0/63 [00:00<?, ?it/s]Reading:  57%|█████▋    | 36/63 [00:00<00:00, 225.93it/s]Reading:  94%|█████████▎| 59/63 [00:00<00:00, 89.55it/s] Reading: 100%|██████████| 63/63 [00:00<00:00, 83.90it/s]
+Saving read results to cache: ./outputs/rag_data_2/read_cache_363be8ebcc69828e0258e34badaadb09.json
+Chunking:   0%|          | 0/63 [00:00<?, ?it/s]Chunking:  11%|█         | 7/63 [00:00<00:01, 54.52it/s]Chunking:  22%|██▏       | 14/63 [00:00<00:00, 54.25it/s]Chunking:  32%|███▏      | 20/63 [00:00<00:00, 51.74it/s]Chunking:  41%|████▏     | 26/63 [00:00<00:01, 21.38it/s]Chunking:  49%|████▉     | 31/63 [00:01<00:01, 25.45it/s]Chunking:  59%|█████▊    | 37/63 [00:01<00:00, 31.64it/s]Chunking:  73%|███████▎  | 46/63 [00:01<00:00, 43.01it/s]Chunking:  83%|████████▎ | 52/63 [00:01<00:00, 42.56it/s]Chunking:  94%|█████████▎| 59/63 [00:01<00:00, 45.78it/s]Chunking: 100%|██████████| 63/63 [00:02<00:00, 25.67it/s]
+Saving chunked data to cache: ./outputs/rag_data_2/chunk_cache_7699571edf0f8cb96fc23412b1ab3d2c_size3000.json
+  0%|          | 0/50 [00:00<?, ?it/s]2025-08-11 11:14:20,364 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  2%|▏         | 1/50 [00:13<11:19, 13.86s/it]2025-08-11 11:14:34,230 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  4%|▍         | 2/50 [00:28<11:35, 14.48s/it]2025-08-11 11:14:49,165 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  6%|▌         | 3/50 [00:44<11:55, 15.23s/it]2025-08-11 11:15:04,514 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  8%|▊         | 4/50 [00:56<10:30, 13.71s/it]2025-08-11 11:15:16,906 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 10%|█         | 5/50 [01:11<10:40, 14.23s/it]2025-08-11 11:15:31,692 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 12%|█▏        | 6/50 [01:26<10:33, 14.40s/it]2025-08-11 11:15:46,801 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 14%|█▍        | 7/50 [01:39<09:57, 13.89s/it]2025-08-11 11:15:59,736 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 16%|█▌        | 8/50 [01:53<09:56, 14.20s/it]2025-08-11 11:16:14,854 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 18%|█▊        | 9/50 [02:09<09:56, 14.55s/it]2025-08-11 11:16:30,320 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 20%|██        | 10/50 [02:24<09:53, 14.83s/it]2025-08-11 11:16:44,470 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 22%|██▏       | 11/50 [02:36<09:05, 13.98s/it]2025-08-11 11:16:56,402 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 24%|██▍       | 12/50 [02:47<08:18, 13.12s/it]2025-08-11 11:17:07,817 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 26%|██▌       | 13/50 [03:00<08:00, 13.00s/it]2025-08-11 11:17:20,511 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 28%|██▊       | 14/50 [03:16<08:19, 13.87s/it]2025-08-11 11:17:35,388 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 30%|███       | 15/50 [03:27<07:40, 13.16s/it]2025-08-11 11:17:47,929 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 32%|███▏      | 16/50 [03:39<07:13, 12.75s/it]2025-08-11 11:18:00,070 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 34%|███▍      | 17/50 [03:51<06:47, 12.34s/it]2025-08-11 11:18:11,506 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 36%|███▌      | 18/50 [04:05<06:50, 12.84s/it]2025-08-11 11:18:25,397 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 38%|███▊      | 19/50 [04:18<06:43, 13.02s/it]2025-08-11 11:18:38,828 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 40%|████      | 20/50 [04:31<06:31, 13.04s/it]2025-08-11 11:18:51,873 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 42%|████▏     | 21/50 [04:45<06:28, 13.38s/it]2025-08-11 11:19:05,951 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 44%|████▍     | 22/50 [05:01<06:37, 14.18s/it]2025-08-11 11:19:22,053 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 46%|████▌     | 23/50 [05:17<06:32, 14.53s/it]2025-08-11 11:19:36,809 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 48%|████▊     | 24/50 [05:30<06:04, 14.04s/it]2025-08-11 11:19:49,906 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 50%|█████     | 25/50 [05:47<06:15, 15.03s/it]2025-08-11 11:20:06,990 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 52%|█████▏    | 26/50 [06:00<05:44, 14.34s/it]2025-08-11 11:20:19,944 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 54%|█████▍    | 27/50 [06:13<05:25, 14.13s/it]2025-08-11 11:20:33,488 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 56%|█████▌    | 28/50 [06:27<05:05, 13.90s/it]2025-08-11 11:20:46,036 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 58%|█████▊    | 29/50 [06:38<04:35, 13.10s/it]2025-08-11 11:20:57,261 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 60%|██████    | 30/50 [06:49<04:11, 12.56s/it]2025-08-11 11:21:09,880 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 62%|██████▏   | 31/50 [07:03<04:03, 12.84s/it]2025-08-11 11:21:23,390 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 64%|██████▍   | 32/50 [07:17<04:01, 13.41s/it]2025-08-11 11:21:37,748 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 66%|██████▌   | 33/50 [07:29<03:36, 12.74s/it]2025-08-11 11:21:48,757 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 68%|██████▊   | 34/50 [07:40<03:17, 12.35s/it]2025-08-11 11:22:00,640 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 70%|███████   | 35/50 [07:53<03:08, 12.59s/it]2025-08-11 11:22:13,909 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 72%|███████▏  | 36/50 [08:07<02:59, 12.84s/it]2025-08-11 11:22:27,005 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 74%|███████▍  | 37/50 [08:21<02:52, 13.25s/it]2025-08-11 11:22:41,526 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 76%|███████▌  | 38/50 [08:34<02:38, 13.21s/it]2025-08-11 11:22:54,509 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 78%|███████▊  | 39/50 [08:48<02:28, 13.50s/it]2025-08-11 11:23:08,851 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 80%|████████  | 40/50 [09:00<02:10, 13.00s/it]2025-08-11 11:23:20,655 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 82%|████████▏ | 41/50 [09:14<02:00, 13.39s/it]2025-08-11 11:23:34,415 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 84%|████████▍ | 42/50 [09:27<01:44, 13.12s/it]2025-08-11 11:23:47,193 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 86%|████████▌ | 43/50 [09:38<01:26, 12.43s/it]2025-08-11 11:23:57,960 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 88%|████████▊ | 44/50 [09:50<01:14, 12.36s/it]2025-08-11 11:24:09,552 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 90%|█████████ | 45/50 [10:05<01:05, 13.14s/it]2025-08-11 11:24:25,214 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 92%|█████████▏| 46/50 [10:18<00:52, 13.08s/it]2025-08-11 11:24:38,558 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 94%|█████████▍| 47/50 [10:31<00:39, 13.19s/it]2025-08-11 11:24:52,264 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 96%|█████████▌| 48/50 [10:46<00:27, 13.58s/it]2025-08-11 11:25:06,125 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 98%|█████████▊| 49/50 [10:57<00:12, 12.95s/it]2025-08-11 11:25:17,717 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+100%|██████████| 50/50 [11:10<00:00, 12.83s/it]100%|██████████| 50/50 [11:10<00:00, 13.40s/it]
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data_2/rag_convs.json
+Preparing RAG context simulations
+  0%|          | 0/21 [00:00<?, ?it/s]2025-08-11 11:25:30,797 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  5%|▍         | 1/21 [00:22<07:29, 22.45s/it]2025-08-11 11:25:52,928 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 10%|▉         | 2/21 [00:38<05:55, 18.69s/it]2025-08-11 11:26:09,767 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 14%|█▍        | 3/21 [00:51<04:45, 15.86s/it]2025-08-11 11:26:21,487 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 19%|█▉        | 4/21 [01:19<05:51, 20.66s/it]2025-08-11 11:26:49,956 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 24%|██▍       | 5/21 [01:45<06:06, 22.92s/it]2025-08-11 11:27:16,431 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 29%|██▊       | 6/21 [02:02<05:10, 20.68s/it]2025-08-11 11:27:32,833 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 33%|███▎      | 7/21 [02:11<03:55, 16.80s/it]2025-08-11 11:27:41,634 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 38%|███▊      | 8/21 [02:40<04:29, 20.72s/it]2025-08-11 11:28:10,767 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 43%|████▎     | 9/21 [02:55<03:47, 19.00s/it]2025-08-11 11:28:25,891 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 48%|████▊     | 10/21 [03:17<03:39, 19.91s/it]2025-08-11 11:28:47,971 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 52%|█████▏    | 11/21 [03:37<03:19, 19.93s/it]2025-08-11 11:29:07,853 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 57%|█████▋    | 12/21 [03:51<02:43, 18.15s/it]2025-08-11 11:29:21,951 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 62%|██████▏   | 13/21 [04:08<02:23, 17.88s/it]2025-08-11 11:29:39,279 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 67%|██████▋   | 14/21 [04:29<02:10, 18.70s/it]2025-08-11 11:29:59,812 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 71%|███████▏  | 15/21 [04:52<02:00, 20.11s/it]2025-08-11 11:30:23,289 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 76%|███████▌  | 16/21 [05:11<01:38, 19.64s/it]2025-08-11 11:30:41,681 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 81%|████████  | 17/21 [05:32<01:19, 19.99s/it]2025-08-11 11:31:02,356 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 86%|████████▌ | 18/21 [05:48<00:56, 18.86s/it]2025-08-11 11:31:18,561 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 90%|█████████ | 19/21 [05:59<00:33, 16.68s/it]2025-08-11 11:31:30,115 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 95%|█████████▌| 20/21 [06:15<00:16, 16.30s/it]2025-08-11 11:31:45,563 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+100%|██████████| 21/21 [06:29<00:00, 15.60s/it]100%|██████████| 21/21 [06:29<00:00, 18.54s/it]
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data_2/rag_failed_convs.json
+  0%|          | 0/26 [00:00<?, ?it/s]2025-08-11 11:31:59,678 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  4%|▍         | 1/26 [00:14<06:07, 14.70s/it]2025-08-11 11:32:14,252 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+  8%|▊         | 2/26 [00:32<06:38, 16.60s/it]2025-08-11 11:32:32,166 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 12%|█▏        | 3/26 [00:41<05:05, 13.30s/it]2025-08-11 11:32:41,973 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 15%|█▌        | 4/26 [00:51<04:20, 11.83s/it]2025-08-11 11:32:51,124 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 19%|█▉        | 5/26 [01:05<04:21, 12.45s/it]2025-08-11 11:33:04,643 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 23%|██▎       | 6/26 [01:22<04:39, 13.99s/it]2025-08-11 11:33:21,666 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 27%|██▋       | 7/26 [01:30<03:51, 12.18s/it]2025-08-11 11:33:30,097 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 31%|███       | 8/26 [01:45<03:56, 13.15s/it]2025-08-11 11:33:45,309 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 35%|███▍      | 9/26 [01:53<03:14, 11.45s/it]2025-08-11 11:33:53,125 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 38%|███▊      | 10/26 [02:09<03:27, 12.96s/it]2025-08-11 11:34:09,368 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 42%|████▏     | 11/26 [02:17<02:50, 11.37s/it]2025-08-11 11:34:17,290 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 46%|████▌     | 12/26 [02:31<02:50, 12.15s/it]2025-08-11 11:34:32,273 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 50%|█████     | 13/26 [02:40<02:26, 11.28s/it]2025-08-11 11:34:40,415 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 54%|█████▍    | 14/26 [03:00<02:47, 13.94s/it]2025-08-11 11:35:00,423 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 58%|█████▊    | 15/26 [03:21<02:55, 15.95s/it]2025-08-11 11:35:21,039 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 62%|██████▏   | 16/26 [03:45<03:02, 18.23s/it]2025-08-11 11:35:44,676 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 65%|██████▌   | 17/26 [04:00<02:35, 17.31s/it]2025-08-11 11:35:59,729 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 69%|██████▉   | 18/26 [04:08<01:57, 14.72s/it]2025-08-11 11:36:08,451 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 73%|███████▎  | 19/26 [04:34<02:05, 17.87s/it]2025-08-11 11:36:33,674 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 77%|███████▋  | 20/26 [04:52<01:48, 18.05s/it]2025-08-11 11:36:52,099 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 81%|████████  | 21/26 [04:59<01:13, 14.75s/it]2025-08-11 11:36:59,220 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 85%|████████▍ | 22/26 [05:16<01:01, 15.25s/it]2025-08-11 11:37:15,595 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 88%|████████▊ | 23/26 [05:25<00:40, 13.50s/it]2025-08-11 11:37:25,161 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 92%|█████████▏| 24/26 [05:37<00:26, 13.21s/it]2025-08-11 11:37:37,547 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+ 96%|█████████▌| 25/26 [05:45<00:11, 11.63s/it]2025-08-11 11:37:45,575 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
+100%|██████████| 26/26 [06:00<00:00, 12.54s/it]100%|██████████| 26/26 [06:00<00:00, 13.87s/it]
+Traceback (most recent call last):
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 158, in run_pipeline_config
+    asyncio.run(function(**flattened_config))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.py", line 485, in rag_data_pipeline
+    for idx, prompt in enumerate(meta_datagen_extras):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+Attempting to save dataset...
+Dataset saved successfully to ./outputs/rag_data_2/rag_success_convs.json
+
+=== Pipeline Cost Efficiency Metrics ===
+Original input tokens: 84,636
+Total model input tokens: 1,035,182
+Total model output tokens: 33,492
+Total cost: $0.20
+Cost per million original tokens: $2.36
+Input-to-model token ratio: 12.23x
+
+=== Component Breakdown ===
++-------------+--------------------+-----------------+--------------+---------------+--------------+-------------------+
+| Component   | Input Tokens       | Output Tokens   | Input Cost   | Output Cost   | Total Cost   | % of Total Cost   |
++=============+====================+=================+==============+===============+==============+===================+
+| Small model | 298,053 (28.8%)    | 15,373 (45.9%)  | $0.02        | $0.00         | $0.02        | 11.5%             |
++-------------+--------------------+-----------------+--------------+---------------+--------------+-------------------+
+| Large model | 737,129 (71.2%)    | 18,119 (54.1%)  | $0.17        | $0.01         | $0.18        | 88.5%             |
++-------------+--------------------+-----------------+--------------+---------------+--------------+-------------------+
+| TOTAL       | 1,035,182 (100.0%) | 33,492 (100.0%) | $0.19        | $0.01         | $0.20        | 100.0%            |
++-------------+--------------------+-----------------+--------------+---------------+--------------+-------------------+
+Error running async pipeline generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.rag_data_pipeline: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 255, in <module>
+    main()
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 249, in main
+    run_pipeline(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 122, in run_pipeline
+    run_pipeline_config(
+  File "/Users/lukasfiller/dev/augmentoolkit/run_augmentoolkit.py", line 158, in run_pipeline_config
+    asyncio.run(function(**flattened_config))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/augmentoolkit/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/lukasfiller/dev/augmentoolkit/generation/core_pipelines/train_a_model_to_do_rag/rag_data_pipeline.py", line 485, in rag_data_pipeline
+    for idx, prompt in enumerate(meta_datagen_extras):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
