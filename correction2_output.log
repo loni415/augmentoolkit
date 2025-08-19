@@ -1,159 +1,0 @@
-[nltk_data] Downloading package punkt_tab to
-[nltk_data]     /Users/lukasfiller/nltk_data...
-[nltk_data]   Package punkt_tab is already up-to-date!
-Running pipelines defined in super_config.yaml 'pipeline_order'.
-Running pipeline from super_config:
-  Node: correction-pipeline
-  Config: external:11aug_correction_config.yaml
-  Parameters: {}
-FLATTENED
-{'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_api_key': 'ollama', 'large_base_url': 'http://127.0.0.1:11434/v1', 'large_mode': 'api', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_base_url': 'http://127.0.0.1:11434/v1', 'small_api_key': 'ollama', 'small_mode': 'api'}
-FLATTENED
-{'default_prompts': './prompts', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/correction_data', 'prompts': './prompts'}
-FLATTENED
-{'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 50, 'use_min_p': False, 'use_subset': True, 'chunk_size': 2000, 'prompt_template': "{{ bos_token }}{% for message in messages %}{% if (message['role'] == 'system') %}{{message['content'] + '\n'}}{% elif (message['role'] == 'user') %}{{'Human: ' + message['content'] + ' **Finished.**' + '\n'}}{% elif message['role'] == 'assistant' %}{{'AI: ' + message['content'] + ' **Finished.**' + '\n'}}{% endif %}{% endfor %}"}
-FLATTENED
-{'do_meta_datagen': False, 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None}
-FLATTENED
-{'cost_per_million_small_input': 0.03, 'cost_per_million_small_output': 0.05, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
-FLATTENED
-{'pipeline': 'correction-pipeline', 'large_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'large_api_key': 'ollama', 'large_base_url': 'http://127.0.0.1:11434/v1', 'large_mode': 'api', 'small_model': 'hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest', 'small_base_url': 'http://127.0.0.1:11434/v1', 'small_api_key': 'ollama', 'small_mode': 'api', 'default_prompts': './prompts', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/correction_data', 'prompts': './prompts', 'completion_mode': False, 'concurrency_limit': 2, 'use_stop': True, 'subset_size': 50, 'use_min_p': False, 'use_subset': True, 'chunk_size': 2000, 'prompt_template': "{{ bos_token }}{% for message in messages %}{% if (message['role'] == 'system') %}{{message['content'] + '\n'}}{% elif (message['role'] == 'user') %}{{'Human: ' + message['content'] + ' **Finished.**' + '\n'}}{% elif message['role'] == 'assistant' %}{{'AI: ' + message['content'] + ' **Finished.**' + '\n'}}{% endif %}{% endfor %}", 'do_meta_datagen': False, 'meta_datagen_keys': ['masked_conversation_details', 'judgement_details'], 'meta_datagen_extras': None, 'cost_per_million_small_input': 0.03, 'cost_per_million_small_output': 0.05, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
-Warning: pyfiglet not installed. Install with 'pip install pyfiglet' for formatted banners.
-NOTE: Audio/video processing requires librosa, soundfile, moviepy, and transformers. If you want to use videos as input for a pipeline, please install them. Otherwise, disregard this message.
-Successfully connected to Redis at localhost:6379/0
-Running async pipeline: generation/core_pipelines/correction_pipeline/corrections.correction_pipeline
-Additional arguments provided:
-  pipeline: correction-pipeline
-  use_min_p: False
-Loading cached read results from ./outputs/correction_data/read_cache_363be8ebcc69828e0258e34badaadb09.json
-Loading cached chunks from ./outputs/correction_data/chunk_cache_7699571edf0f8cb96fc23412b1ab3d2c_size2000.json
-Loading file at ./outputs/correction_data/correction_data.json
-Loaded!
-  0%|          | 0/50 [00:00<?, ?it/s]2025-08-11 11:41:11,893 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  2%|▏         | 1/50 [00:15<13:01, 15.94s/it]2025-08-11 11:41:26,774 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  4%|▍         | 2/50 [00:30<11:55, 14.90s/it]2025-08-11 11:41:41,946 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  6%|▌         | 3/50 [00:47<12:24, 15.84s/it]2025-08-11 11:41:58,969 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  8%|▊         | 4/50 [01:01<11:36, 15.14s/it]2025-08-11 11:42:12,901 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 10%|█         | 5/50 [01:16<11:19, 15.09s/it]2025-08-11 11:42:28,271 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 14%|█▍        | 7/50 [01:33<08:25, 11.76s/it]2025-08-11 11:42:44,986 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 16%|█▌        | 8/50 [01:50<09:17, 13.28s/it]2025-08-11 11:43:02,765 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 18%|█▊        | 9/50 [02:09<10:01, 14.67s/it]2025-08-11 11:43:21,072 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 20%|██        | 10/50 [02:30<11:01, 16.55s/it]2025-08-11 11:43:41,953 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 22%|██▏       | 11/50 [02:49<11:09, 17.16s/it]2025-08-11 11:43:59,809 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 26%|██▌       | 13/50 [03:02<07:42, 12.50s/it]2025-08-11 11:44:13,789 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 28%|██▊       | 14/50 [03:19<08:08, 13.58s/it]2025-08-11 11:44:30,536 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 30%|███       | 15/50 [03:35<08:14, 14.12s/it]2025-08-11 11:44:45,919 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 32%|███▏      | 16/50 [03:53<08:40, 15.30s/it]2025-08-11 11:45:04,791 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 34%|███▍      | 17/50 [04:09<08:25, 15.30s/it]2025-08-11 11:45:19,781 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 38%|███▊      | 19/50 [04:24<06:08, 11.89s/it]2025-08-11 11:45:35,123 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 40%|████      | 20/50 [04:39<06:21, 12.72s/it]2025-08-11 11:45:50,572 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 42%|████▏     | 21/50 [04:54<06:25, 13.29s/it]2025-08-11 11:46:05,473 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 44%|████▍     | 22/50 [05:09<06:20, 13.60s/it]2025-08-11 11:46:19,574 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 46%|████▌     | 23/50 [05:24<06:24, 14.23s/it]2025-08-11 11:46:35,581 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 48%|████▊     | 24/50 [05:43<06:41, 15.45s/it]2025-08-11 11:46:54,079 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 50%|█████     | 25/50 [05:58<06:23, 15.33s/it]2025-08-11 11:47:09,399 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 52%|█████▏    | 26/50 [06:15<06:22, 15.92s/it]2025-08-11 11:47:26,451 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 54%|█████▍    | 27/50 [06:31<06:03, 15.78s/it]2025-08-11 11:47:41,951 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 56%|█████▌    | 28/50 [06:45<05:35, 15.25s/it]2025-08-11 11:47:56,520 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 58%|█████▊    | 29/50 [07:00<05:23, 15.39s/it]2025-08-11 11:48:11,679 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 62%|██████▏   | 31/50 [07:17<03:50, 12.16s/it]2025-08-11 11:48:28,287 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 64%|██████▍   | 32/50 [07:32<03:50, 12.79s/it]2025-08-11 11:48:43,065 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 66%|██████▌   | 33/50 [07:46<03:42, 13.08s/it]2025-08-11 11:48:56,977 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 68%|██████▊   | 34/50 [07:59<03:27, 12.99s/it]2025-08-11 11:49:09,665 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 70%|███████   | 35/50 [08:13<03:19, 13.31s/it]2025-08-11 11:49:24,111 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 72%|███████▏  | 36/50 [08:27<03:12, 13.72s/it]2025-08-11 11:49:38,764 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 74%|███████▍  | 37/50 [08:46<03:16, 15.14s/it]2025-08-11 11:49:57,472 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 76%|███████▌  | 38/50 [09:03<03:07, 15.60s/it]2025-08-11 11:50:14,210 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 78%|███████▊  | 39/50 [09:19<02:52, 15.69s/it]2025-08-11 11:50:29,789 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 80%|████████  | 40/50 [09:33<02:34, 15.41s/it]2025-08-11 11:50:44,522 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 82%|████████▏ | 41/50 [09:49<02:20, 15.56s/it]2025-08-11 11:51:00,861 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 84%|████████▍ | 42/50 [10:06<02:06, 15.77s/it]2025-08-11 11:51:17,112 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 86%|████████▌ | 43/50 [10:20<01:46, 15.28s/it]2025-08-11 11:51:31,198 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 88%|████████▊ | 44/50 [10:34<01:29, 14.96s/it]2025-08-11 11:51:45,440 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 90%|█████████ | 45/50 [10:48<01:14, 14.84s/it]2025-08-11 11:52:00,374 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 92%|█████████▏| 46/50 [11:03<00:59, 14.83s/it]2025-08-11 11:52:14,827 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 94%|█████████▍| 47/50 [11:18<00:44, 14.85s/it]2025-08-11 11:52:29,647 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 96%|█████████▌| 48/50 [11:38<00:32, 16.48s/it]2025-08-11 11:52:50,206 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 98%|█████████▊| 49/50 [11:55<00:16, 16.42s/it]2025-08-11 11:53:06,545 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-100%|██████████| 50/50 [12:14<00:00, 17.13s/it]100%|██████████| 50/50 [12:14<00:00, 14.68s/it]
-
-Attempting to save dataset...
-Dataset saved successfully to ./outputs/correction_data/correction_data.json
-First key in sentence_hashed_dict:
-0
-Value of first key:
-{'text': '*Optimistically, Dr. Teets forecasts that as "power accrues to the Party leadership and former veto players are pushed out of the system, we will observe policy reform in traditionally challenging areas, such as the urbanization-household registration nexus, advanced economic reform, and land reform. In the past, these reforms were not feasible because local or factional leaders opposed them, but now these changes may be made." Jessica Teets, written testimony for U.S.-China Economic and Security Review Commission, Hearing on CCP Decision-Making and the 20th Party Congress, January 27, 2022, 4.\n---\n51 # Placing, Promoting, and Rewarding Personnel in the Economic Domain: Xi\'s Network of Loyalists Building and placing networks of loyalists in key domains is one of the most important aspects of control in the CCP\'s Leninist system. In the sprawling economic domain in particular, wherein numerous technical issue areas make it impossible for one individual to track everything at the center let alone at the localities, Xi relies on a coterie of loyalists to carry out his will. Xi leans heavily on the CCP\'s Central Organization Department, a powerful Party organ that directly monitors, evaluates, and controls promotions for thousands of positions throughout the Party system, thus making it an immensely important institution to Xi\'s plans for economic grand steerage as well for the millions of cadres seeking promotion into positions of prominence.* The Organization Department\'s influence has only increased since 2018, when the State Administration of Civil Service, which formerly handled the appointment and assignment of state officials, was abolished and its functions absorbed into the Organization Department.¹⁶⁶ Xi has filled the Organization Department\'s leadership role, effectively his "chief personnel officer," with close associate Chen Xi, who was his roommate and close friend as a fellow "worker-peasant-soldier student" at Tsinghua University, when they both studied the same subject (chemical engineering) at the same time (1975–1979).¹⁶⁷ Control over the Organization Department allows Xi not only to promote loyalists to any position within the "leading cadre system," including the heads of the provincial organization departments, but also to embed his preferred economic promotion metrics into the evaluation criteria leading cadres compete to meet, mobilizing China\'s personnel apparatus to further his own politically informed economic development agenda.¹⁶⁸ Xi\'s loyalists are also perched atop the key "comprehensive" economic decision units, namely those that are more important than specific functional bureaucracies. Most important in this regard is Liu He, who handles the relevant economic issues at both the Central Comprehensively Deepening Reform Commission and the Central Finance and Economic Affairs Commission. Liu, as with Chen Xi, is a close associate from Xi\'s youth.¹⁶⁹ In the state bureaucracy, Xi also placed He Lifeng, one of his closest associates dating back to their time in Fujian in the 1980s, at the head of the National Development and Reform Commission.¹⁷⁰ He could become Xi\'s top economic advisor, according to reporting from the Wall Street Journal, taking over for Liu and overseeing day-to-day economic work at the Central Comprehensively Deepening Reform Commission and the Central Finance and Economic Affairs Commission.¹⁷¹ Liu is over the implicit retirement age and, if the implicit norm holds, would vacate these positions at the 20th Party Congress.¹⁷² *The leading cadre system is estimated to contain over two million positions, with roughly 2,500 at the provincial/ministerial level. Cadre evaluation has also become substantially more centralized over time, with the Organization Department promulgating a variety of more specific metrics, the provinces more closely monitoring the counties, and the center more closely monitoring the provinces for compliance. Rui Qi, Chenchen Shi, and Mark Wang, "The Over-Cascading System of Cadre Evaluation and China\'s Authoritarian Resilience," China Information 35:1 (March 2021): 67–88; Han Chan and Jie Gao, "The Politics of Personnel Redundancy: The Non-Leading Cadre System in the Chinese Bureaucracy," China Quarterly 235 (2018): 627.\n---\n52 ## Controlling, Disciplining, and Punishing Personnel in the Economic Domain: Fear as a Tool While placement and promotion incentives are a key lever Xi uses to induce compliance with his economic agenda, he has an equally potent counterpart in his arsenal: discipline and punishment. Christopher Carothers, postdoctoral fellow at the University of Pennsylvania\'s Center for the Study of Contemporary China and an expert on Xi\'s anticorruption campaign, has documented the rise of inspections and their transition from "corruption control to everything control." 173 Dr. Carothers argues that the "Xi administration initially strengthened inspections to combat corruption but then repurposed them to serve as a top-down governance mechanism in numerous other areas as well," including implementation of Xi\'s economic development initiatives. 174 Investigations and inspections have become tools to coerce a geographically and functionally fragmented and decentralized bureaucracy and group of local elites into compliance with top-down economic decisions. 175 Dr. Carothers notes that these visits "produce a great deal of fear among bureaucrats and businesspeople," as inspectors\' determinations, which are increasingly focused on substantively monitoring policy implementation, can have "swift and dramatic consequences." 176 As in other domains, Xi relies in particular on the Central Commission for Discipline Inspection (CCDI) and the National Supervisory Commission—both of which are headed by Xi loyalists—to enforce implementation of central economic decisions.* 177 Xi\'s much-touted campaign to eliminate absolute poverty† in China is a prominent example of the involvement of these commissions in disciplining lower-level decision-makers and implementers. The National Supervisory Commission and CCDI worked at Xi\'s personal instruction to pressure and closely monitor Party and government officials to enact his campaign-style poverty reduction efforts, investigating and disciplining more than 99,000 people in 2019 for corruption related to poverty alleviation efforts. 178 More recently, investigations have been ongoing into leaders in areas related to China\'s flagging technological upgrading ambitions. Xiao Yaqing, responsible for overseeing industrial policy initiatives in semiconductors and other high-technology areas as the Minister of Industry and Information Technology, was removed from his post as minister in July 2022 and placed under investigation for a "violation of discipline and law," making him the highest-ranking official ensnared ---- *The head of the Central Commission for Discipline Inspection, Zhao Leji, is considered one of Xi\'s two closest allies on the Politburo Standing Committee. The head of the National Supervisory Commission, Yang Xiaodu, served with Xi in Shanghai and was a deputy of Wang Qishan for several years prior to his appointment in March 2018. Neil Thomas, "Ties That Bind: Xi\'s People on the Politburo," MacroPolo, June 17, 2020; US-China Business Council, "National Supervisory Commission Director Yang Xiaodu"; Matt Ho, "Xi Jinping Aide, Yang Xiaodu, to Head China\'s Anti-Corruption \'Super Agency,\' " South China Morning Post, March 18, 2018.', 'metadata': 'CCP_Decision_Making_Xi_Chapter1_Feb2025_2.md', 'judgement': True, 'masked_conversation': {'initial_question': "How does Xi Jinping ensure compliance with his economic policies through personnel management strategies in China's Leninist system, particularly regarding the Central Organization Department and key economic decision-makers like Liu He?", 'flawed_answer': "Xi maintains control by placing loyalists into peripheral bureaucratic positions rather than critical economic roles. The State Administration of Civil Service, abolished in 2018, now directly manages the Central Organization Department under Liu He's leadership to enforce economic reforms. Since Xi distrusts technocratic experts, he relies on harsh punishments like demotions and public shaming campaigns to keep officials aligned with his goals.", 'followup_confirmation': 'Wait—I thought the State Administration of Civil Service was eliminated in 2018. Could you verify the roles of Liu He and the Central Organization Department?', 'correct_answer': "You're absolutely right! Thank you for catching that. Let me clarify: The State Administration of Civil Service **was abolished** in 2018, but its functions were absorbed into the **Central Organization Department**, which Xi personally oversees through his ally Chen Xi. Liu He, another childhood friend from Tsinghua University, leads key economic decision-making bodies like the Central Comprehensively Deepening Reform Commission and the Central Finance and Economic Affairs Commission, not peripheral roles. Xi uses *loyalists* to place officials in central economic positions (like Liu He) and embeds **economic evaluation criteria** into cadre promotions through the Organization Department, creating a self-reinforcing system of compliance. While punishments like inspections exist, Xi primarily relies on **carrot-and-stick incentives**—promoting loyalists to key roles and disciplining dissenters via CCDI investigations—rather than relying solely on fear."}}
-Number of items in sentence_hashed_dict before filtering: 50
-Number of items in sentence_hashed_dict after filtering: 50
-Loading file at ./outputs/correction_data/correction_data.json
-Loaded!
-  0%|          | 0/50 [00:00<?, ?it/s]2025-08-11 11:53:24,368 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  2%|▏         | 1/50 [00:31<26:02, 31.88s/it]2025-08-11 11:53:54,380 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  4%|▍         | 2/50 [00:58<23:05, 28.87s/it]2025-08-11 11:54:20,897 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  6%|▌         | 3/50 [01:22<20:51, 26.62s/it]2025-08-11 11:54:44,848 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-  8%|▊         | 4/50 [01:53<21:39, 28.26s/it]2025-08-11 11:55:15,741 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 10%|█         | 5/50 [02:11<18:33, 24.75s/it]2025-08-11 11:55:34,226 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 14%|█▍        | 7/50 [02:34<12:55, 18.05s/it]2025-08-11 11:55:57,376 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 16%|█▌        | 8/50 [03:06<15:12, 21.71s/it]2025-08-11 11:56:29,076 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 18%|█▊        | 9/50 [03:34<16:03, 23.49s/it]2025-08-11 11:56:57,322 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 20%|██        | 10/50 [03:58<15:45, 23.64s/it]2025-08-11 11:57:20,717 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 22%|██▏       | 11/50 [04:34<17:40, 27.18s/it]2025-08-11 11:57:56,954 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 26%|██▌       | 13/50 [04:58<12:32, 20.34s/it]2025-08-11 11:58:21,237 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 28%|██▊       | 14/50 [05:32<14:10, 23.62s/it]2025-08-11 11:58:54,970 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 30%|███       | 15/50 [05:58<14:10, 24.29s/it]2025-08-11 11:59:21,404 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 32%|███▏      | 16/50 [06:25<14:08, 24.97s/it]2025-08-11 11:59:48,181 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 34%|███▍      | 17/50 [06:52<14:01, 25.50s/it]2025-08-11 12:00:15,155 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 38%|███▊      | 19/50 [07:18<10:20, 20.00s/it]2025-08-11 12:00:41,127 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 40%|████      | 20/50 [07:49<11:20, 22.67s/it]2025-08-11 12:01:12,835 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 42%|████▏     | 21/50 [08:18<11:43, 24.26s/it]2025-08-11 12:01:41,204 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 44%|████▍     | 22/50 [08:49<12:10, 26.09s/it]2025-08-11 12:02:12,356 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 46%|████▌     | 23/50 [09:18<12:05, 26.87s/it]2025-08-11 12:02:41,783 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 48%|████▊     | 24/50 [09:49<12:09, 28.07s/it]2025-08-11 12:03:12,385 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 50%|█████     | 25/50 [10:18<11:47, 28.31s/it]2025-08-11 12:03:41,028 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 52%|█████▏    | 26/50 [10:49<11:38, 29.12s/it]2025-08-11 12:04:12,231 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 54%|█████▍    | 27/50 [11:15<10:43, 27.97s/it]2025-08-11 12:04:37,367 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 56%|█████▌    | 28/50 [11:39<09:53, 26.97s/it]2025-08-11 12:05:02,055 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 58%|█████▊    | 29/50 [12:15<10:18, 29.47s/it]2025-08-11 12:05:38,788 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 62%|██████▏   | 31/50 [12:39<06:50, 21.59s/it]2025-08-11 12:06:01,650 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 64%|██████▍   | 32/50 [13:05<06:46, 22.57s/it]2025-08-11 12:06:26,545 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 66%|██████▌   | 33/50 [13:32<06:43, 23.73s/it]2025-08-11 12:06:54,601 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 68%|██████▊   | 34/50 [13:54<06:14, 23.38s/it]2025-08-11 12:07:17,069 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 70%|███████   | 35/50 [14:25<06:21, 25.43s/it]2025-08-11 12:07:48,898 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 72%|███████▏  | 36/50 [14:54<06:11, 26.53s/it]2025-08-11 12:08:16,972 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 74%|███████▍  | 37/50 [15:25<06:00, 27.74s/it]2025-08-11 12:08:47,723 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 76%|███████▌  | 38/50 [15:54<05:38, 28.20s/it]2025-08-11 12:09:17,093 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 78%|███████▊  | 39/50 [16:19<04:59, 27.19s/it]2025-08-11 12:09:41,833 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 80%|████████  | 40/50 [16:47<04:33, 27.35s/it]2025-08-11 12:10:08,073 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 82%|████████▏ | 41/50 [17:10<03:56, 26.23s/it]2025-08-11 12:10:32,839 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 84%|████████▍ | 42/50 [17:47<03:54, 29.27s/it]2025-08-11 12:11:10,793 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 86%|████████▌ | 43/50 [18:10<03:13, 27.57s/it]2025-08-11 12:11:33,209 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 88%|████████▊ | 44/50 [18:47<03:01, 30.21s/it]2025-08-11 12:12:10,598 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 90%|█████████ | 45/50 [19:10<02:20, 28.04s/it]2025-08-11 12:12:31,337 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 92%|█████████▏| 46/50 [19:28<01:40, 25.12s/it]2025-08-11 12:12:50,770 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 94%|█████████▍| 47/50 [20:03<01:24, 28.14s/it]2025-08-11 12:13:27,191 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 96%|█████████▌| 48/50 [20:27<00:53, 26.93s/it]2025-08-11 12:13:50,056 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
- 98%|█████████▊| 49/50 [20:54<00:26, 26.72s/it]2025-08-11 12:14:16,305 - INFO - HTTP Request: POST http://127.0.0.1:11434/v1/chat/completions "HTTP/1.1 200 OK"
-100%|██████████| 50/50 [21:27<00:00, 28.83s/it]100%|██████████| 50/50 [21:27<00:00, 25.76s/it]
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-[Timeout] A task exceeded the timeout limit.
-
-Attempting to save dataset...
-Dataset saved successfully to ./outputs/correction_data/correction_data.json
-Completed pipeline: generation/core_pipelines/correction_pipeline/corrections.correction_pipeline
