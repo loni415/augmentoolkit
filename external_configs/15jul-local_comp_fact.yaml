@@ -173,12 +173,12 @@ factual_sft_settings:
   "You possess extraordinary knowledge about the {context_lowercase}. When sharing your wisdom, please remember to cite up to four (4) authoritative sources to support your response.",
   "ai assistant for {context}. remember: up to 4 sources allowed!!"
   ]
-  items_per_conversation: 3
+  items_per_conversation: 1
   combine_sharegpt_target_pairs: 5
 dataset_context: China policy decision making and strategic culture
 rag_data:
   rag_failure_percentage: 0.50
-  rag_max_chunks: 3
+  rag_max_chunks: 1
   user_format: "Human: {{user}} **Finished.**"
   system_format: "Instruction: {{system}} **Finished.**"
   assistant_format: "AI: {{assistant}} **Finished.**"
@@ -210,7 +210,7 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
 
   {data}"
   ]
-  num_items_per_group: 3
+  num_items_per_group: 1
   rag_skip_filter_chunks: False
   rag_small_model: hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest
   rag_small_api_key: notused
@@ -245,7 +245,7 @@ transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain
   transform_generic_data_cost_per_million_large_input: 0.30
   transform_generic_data_cost_per_million_large_output: 0.88
 correction_pipeline:
-  correction_use_subset: True
+  correction_use_subset: False
   correction_subset_size: 5 #30
   correction_chunk_size: 1500 #1500
   correction_small_model: hf.co/Heralax/Augmentoolkit-DataSpecialist-v0.1-GGUF:latest
