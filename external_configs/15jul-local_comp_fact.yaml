@@ -32,7 +32,7 @@ path:
       rag_use_subset: False
       correction_subset_size: 1500 #4000
       correction_use_subset: False #check
-  output_dir: ./outputs/sc_comptfact_18aug_fresh
+  output_dir: ./outputs/sft_run_19aug
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
