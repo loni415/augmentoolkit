@@ -1,23 +1,11 @@
 
 pipeline_order:
-  #- node: recall-multi-source-pipeline
-  #  config: external:lf1_mutli_fact_gen.yaml
-
-  - node: repvar-pipeline #found below
-    config: external:2sep_repvar.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
-  
-  #- node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
-  #  config: external:15jul-local_comp_fact.yaml
+  - node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
+    config:  external:_START_HERE_complete_factual.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
 
   # - node: rag-server # you can chain multiple pipelines. They will be executed sequentially.
   #   config: rag-config
   
-  # - node: correction-pipeline
-  #   config: external:11aug_correction_config.yaml
-
-  #- node: rag-data-pipeline
-  #  config: external:11aug_rag_data.yaml
-
 path_aliases:
   # Base Directory Aliases
   gen_comp: generation/core_composition
@@ -29,7 +17,7 @@ path_aliases:
 
   # generation/core_composition/complete_factual_dataset
   factual-datagen-folder: gen_comp:complete_factual_dataset
-  factual-datagen-pipeline: gen_comp:complete_factual_dataset/complete_factual_dataset.factual_datagen_full
+  factual-datagen-pipeline:   gen_comp:complete_factual_dataset/complete_factual_dataset.factual_datagen_full
   factual-datagen-config: gen_comp:complete_factual_dataset/config.yaml
 
   # generation/core_composition/meta_datagen
