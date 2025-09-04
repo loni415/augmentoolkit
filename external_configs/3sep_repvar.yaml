@@ -26,7 +26,7 @@ system:
   chunk_size: 4000
   keep_system_prompt: True
   variation_generator_count: 4 
-  make_inferred_facts: False
+  make_inferred_facts: True
 dataset:
   dataset_context: China policy decision making and strategic culture
   include_context_in_dataset: True

@@ -9,11 +9,12 @@ outputs/*
 cache/*
 inputs/meta/*
 inputs/meta*
+inputs/*
 **/spicy_prompts
 **/hidden*
 test_huey*
 huey/*
-logs/*
+#logs/*
 !logs/.gitkeep
 atk-interface/dist/
 atk-interface/node_modules/
@@ -24,3 +25,4 @@ generation/core_pipelines/grep_sources
 llama.cpp
 models/**
 helper_process_logs/
+
