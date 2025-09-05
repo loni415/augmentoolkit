@@ -14,8 +14,7 @@ path:
   output_dir: ./outputs/4sep-repvar
   prompts: ./prompts_local
   default_prompts: ./prompts_local
-  prompts_inferred: augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local
-  default_prompts_inferred: augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local
+  #when using inferred facts, add the prompts from that folder into the prompts_local to use
 system:
   completion_mode: False
   concurrency_limit: 1
