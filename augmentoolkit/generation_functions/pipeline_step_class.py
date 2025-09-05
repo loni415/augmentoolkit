@@ -181,6 +181,7 @@ class PipelineStep:
         validation_function=lambda x, y: {"result": True, "message": "default message"},
         max_retries=3,
         log_full_outputs=False,
+        timeout=600,  # Add a timeout parameter
         **kwargs,  # Anything run time gets passed into .run() instead of the class at initialization. The only other thing I may have to add to that list are the static arguments.
     ):  # things that are args here are things that would be in the code. Some of these will be live-tweakable.
         self.prompt_path = prompt_path
@@ -193,6 +194,7 @@ class PipelineStep:
         self.validation_function = validation_function
         self.max_retries = max_retries
         self.log_full_outputs = log_full_outputs
+        self.timeout = timeout
         self.static_arguments = kwargs  # any additional arguments are passed in during generation time. Fits the role of stuff read from the config, like special instructions.
         self.details_key = details_key
         self.input_processor = input_processor
@@ -409,17 +411,16 @@ class PipelineStep:
                 for key, value in input_dict.items()
             ]
             coroutines = [rtwl(task) for task in data_generations_tasks]
-            TASK_TIMEOUT_SECONDS = 600  # 10 minutes timeout
             processed_count = 0  # Keep track for logging
             total_tasks = len(coroutines)
             for future in tqdmasyncio.tqdm.as_completed(coroutines):
                 processed_count += 1
                 loop_callback(input_dict=input_dict, **kwargs)
                 try:
-                    await asyncio.wait_for(future, timeout=TASK_TIMEOUT_SECONDS)
+                    await asyncio.wait_for(future, timeout=self.timeout)
                 except asyncio.TimeoutError:
                     print(
-                        f"\nWARNING: Task {processed_count}/{total_tasks} timed out after {TASK_TIMEOUT_SECONDS} seconds.",
+                        f"\nWARNING: Task {processed_count}/{total_tasks} timed out after {self.timeout} seconds.",
                         file=sys.stderr,
                     )
                     # Task is cancelled by wait_for, loop continues

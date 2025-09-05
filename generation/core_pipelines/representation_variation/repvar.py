@@ -409,10 +409,13 @@ async def representation_variation_pipeline(
     additional_dataset_context: str = "",
     task_id=None,
     seed=1048596,
+    timeout=600,
     **kwargs,
 ):
 
-    filter_chunks_step = create_filter_chunks_step(output_file="synthetic_pretrain")
+    filter_chunks_step = create_filter_chunks_step(
+        output_file="synthetic_pretrain", timeout=timeout
+    )
     generate_variations_step = RandomVariationStep(
         sampling_params={
             "max_tokens": 4000,
@@ -428,6 +431,7 @@ async def representation_variation_pipeline(
         variation_generator_count=variation_generator_count,
         output_processor=extract_rewrite,
         details_key="variations_details",
+        timeout=timeout,
     )
 
     # Check if kwargs is not empty and print all keys and values if present
