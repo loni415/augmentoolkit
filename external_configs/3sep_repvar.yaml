@@ -13,9 +13,9 @@ path:
   input_dir: ./inputs/strategic_culture
   output_dir: ./outputs/4sep-repvar
   prompts: ./prompts_local
-  prompts_inferred: ./prompts_inferred_facts
-  default_prompts_inferred: ./prompts_inferred_facts_local
   default_prompts: ./prompts_local
+  prompts_inferred: augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local
+  default_prompts_inferred: augmentoolkit/generation/core_pipelines/representation_variation/prompts_inferred_facts_local
 system:
   completion_mode: False
   concurrency_limit: 1
