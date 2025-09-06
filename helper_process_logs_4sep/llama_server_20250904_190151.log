@@ -4324,3 +4324,6 @@ srv  log_server_r: request: GET /v1/models 127.0.0.1 200
 srv  log_server_r: request: GET /v1/models 127.0.0.1 200
 srv  log_server_r: request: OPTIONS /v1/models 127.0.0.1 200
 srv  log_server_r: request: GET /v1/models 127.0.0.1 200
+srv  log_server_r: request: GET /v1/models 127.0.0.1 200
+srv  log_server_r: request: OPTIONS /v1/models 127.0.0.1 200
+srv  log_server_r: request: GET /v1/models 127.0.0.1 200
