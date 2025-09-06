@@ -1,0 +1,61 @@
+[2025-09-04 19:01:54,848] INFO:huey.consumer:MainThread:Huey consumer started with 1 thread, PID 52049 at 2025-09-05 05:01:54.847577
+INFO:huey.consumer:Huey consumer started with 1 thread, PID 52049 at 2025-09-05 05:01:54.847577
+[2025-09-04 19:01:54,848] INFO:huey.consumer:MainThread:Scheduler runs every 1 second(s).
+INFO:huey.consumer:Scheduler runs every 1 second(s).
+[2025-09-04 19:01:54,848] INFO:huey.consumer:MainThread:Periodic tasks are enabled.
+INFO:huey.consumer:Periodic tasks are enabled.
+[2025-09-04 19:01:54,848] INFO:huey.consumer:MainThread:The following commands are available:
++ tasks.run_pipeline_task
+INFO:huey.consumer:The following commands are available:
++ tasks.run_pipeline_task
+[2025-09-04 19:02:38,090] INFO:huey:Worker-1:Executing tasks.run_pipeline_task: 39f3c773-c55c-4752-8026-8434a2f4c902
+INFO:huey:Executing tasks.run_pipeline_task: 39f3c773-c55c-4752-8026-8434a2f4c902
+Successfully connected to Redis at localhost:6379/0
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Preparing to run pipeline subprocess for node: repvar-pipeline
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: 0.00% complete - Initializing task...
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Initial progress set to 0.0.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Original parameters (first 500 chars): {'pipeline': 'repvar-pipeline', 'api': {'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'augmentoolkit', 'large_model': 'augmentoolkit', 'small_mode': 'api', 'large_mode': 'api'}, 'path': {'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/4sep-repvar', 'prompts': './prompts_local', 'default_prompts': './prompts_local'}, 'system': {'completion_mode': False, 'concurr
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: About to call flatten_config. No_flatten keys: []
+FLATTENED
+{'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'augmentoolkit', 'large_model': 'augmentoolkit', 'small_mode': 'api', 'large_mode': 'api'}
+FLATTENED
+{'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/4sep-repvar', 'prompts': './prompts_local', 'default_prompts': './prompts_local'}
+FLATTENED
+{'completion_mode': False, 'concurrency_limit': 1, 'use_stop': True, 'subset_size': 5, 'use_min_p': False, 'use_subset': False, 'chunk_size': 4000, 'keep_system_prompt': True, 'variation_generator_count': 4, 'make_inferred_facts': True}
+FLATTENED
+{'dataset_context': 'China policy decision making and strategic culture', 'include_context_in_dataset': True, 'code_variation_functions': ['keyboard_augmentation'], 'additional_dataset_context': ''}
+FLATTENED
+{'do_meta_datagen': True, 'meta_datagen_keys': ['judgement_details', 'atomic_facts_details', 'variations_details'], 'meta_datagen_extras': None}
+FLATTENED
+{'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
+FLATTENED
+{'pipeline': 'repvar-pipeline', 'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'augmentoolkit', 'large_model': 'augmentoolkit', 'small_mode': 'api', 'large_mode': 'api', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/4sep-repvar', 'prompts': './prompts_local', 'default_prompts': './prompts_local', 'completion_mode': False, 'concurrency_limit': 1, 'use_stop': True, 'subset_size': 5, 'use_min_p': False, 'use_subset': False, 'chunk_size': 4000, 'keep_system_prompt': True, 'variation_generator_count': 4, 'make_inferred_facts': True, 'dataset_context': 'China policy decision making and strategic culture', 'include_context_in_dataset': True, 'code_variation_functions': ['keyboard_augmentation'], 'additional_dataset_context': '', 'do_meta_datagen': True, 'meta_datagen_keys': ['judgement_details', 'atomic_facts_details', 'variations_details'], 'meta_datagen_extras': None, 'cost_per_million_small_input': 0.07, 'cost_per_million_small_output': 0.14, 'cost_per_million_large_input': 0.23, 'cost_per_million_large_output': 0.4}
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Successfully called flatten_config. Flat params (first 500 chars): {'pipeline': 'repvar-pipeline', 'small_api_key': 'ollama', 'large_api_key': 'ollama', 'small_base_url': 'http://127.0.0.1:11434/v1', 'large_base_url': 'http://127.0.0.1:11434/v1', 'small_model': 'augmentoolkit', 'large_model': 'augmentoolkit', 'small_mode': 'api', 'large_mode': 'api', 'input_dir': './inputs/strategic_culture', 'output_dir': './outputs/4sep-repvar', 'prompts': './prompts_local', 'default_prompts': './prompts_local', 'completion_mode': False, 'concurrency_limit': 1, 'use_stop': Tr
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: task_id added to parameters_flat.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Determining and storing output directory...
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Found 'output_dir' in parameters override: ./outputs/4sep-repvar
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Resolved output directory to: /Users/lukasfiller/dev/augmentoolkit/outputs/4sep-repvar
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Finished determining output directory. Resolved to: /Users/lukasfiller/dev/augmentoolkit/outputs/4sep-repvar
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Stored output directory mapping in Redis key output_dir_for_task:39f3c773-c55c-4752-8026-8434a2f4c902
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Storing parameters in Redis...
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Stored parameters in Redis key parameters_for_task:39f3c773-c55c-4752-8026-8434a2f4c902
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Preparing subprocess command...
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: About to call json.dumps for parameters_flat in command extend.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Added override-json to command.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Executing command: /Users/lukasfiller/dev/augmentoolkit/.venv/bin/python3 run_augmentoolkit.py --node repvar-pipeline --override-json {"pipeline": "repvar-pipeline", "small_api_key": "ollama", "large_api_key": "ollama", "small_base_url": "http://127.0.0.1:11434/v1", "large_base_url": "http://127.0.0.1:11434/v1", "small_model": "augmentoolkit", "large_model": "augmentoolkit", "small_mode": "api", "large_mode": "api", "input_dir": "./inputs/strategic_culture", "output_dir": "./outputs/4sep-repvar", "prompts": "./prompts_local", "default_prompts": "./prompts_local", "completion_mode": false, "concurrency_limit": 1, "use_stop": true, "subset_size": 5, "use_min_p": false, "use_subset": false, "chunk_size": 4000, "keep_system_prompt": true, "variation_generator_count": 4, "make_inferred_facts": true, "dataset_context": "China policy decision making and strategic culture", "include_context_in_dataset": true, "code_variation_functions": ["keyboard_augmentation"], "additional_dataset_context": "", "do_meta_datagen": true, "meta_datagen_keys": ["judgement_details", "atomic_facts_details", "variations_details"], "meta_datagen_extras": null, "cost_per_million_small_input": 0.07, "cost_per_million_small_output": 0.14, "cost_per_million_large_input": 0.23, "cost_per_million_large_output": 0.4, "task_id": "39f3c773-c55c-4752-8026-8434a2f4c902"} in CWD: /Users/lukasfiller/dev/augmentoolkit
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Determined log file path: /Users/lukasfiller/dev/augmentoolkit/logs/39f3c773-c55c-4752-8026-8434a2f4c902.log. About to open.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Successfully opened log file: /Users/lukasfiller/dev/augmentoolkit/logs/39f3c773-c55c-4752-8026-8434a2f4c902.log
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Preparing to start subprocess. Log file object is: <_io.TextIOWrapper name='/Users/lukasfiller/dev/augmentoolkit/logs/39f3c773-c55c-4752-8026-8434a2f4c902.log' mode='w' encoding='utf-8'>
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Subprocess Popen call completed. Process object: <Popen: returncode: None args: ['/Users/lukasfiller/dev/augmentoolkit/.venv/...>
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Subprocess started (PID: 52309). Stored PID in Redis key worker_pid_for_task:39f3c773-c55c-4752-8026-8434a2f4c902
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Waiting for subprocess (PID: 52309) to complete...
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Subprocess (PID: 52309) finished with exit code 0.
+Pipeline task 39f3c773-c55c-4752-8026-8434a2f4c902 completed successfully via subprocess.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Set final status in Redis (status_for_task:39f3c773-c55c-4752-8026-8434a2f4c902) to COMPLETED. Message: Pipeline task 39f3c773-c55c-4752-8026-8434a2f4c902 completed successfully.
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Closed log file /Users/lukasfiller/dev/augmentoolkit/logs/39f3c773-c55c-4752-8026-8434a2f4c902.log
+Task 39f3c773-c55c-4752-8026-8434a2f4c902: Removed subprocess PID key worker_pid_for_task:39f3c773-c55c-4752-8026-8434a2f4c902 from Redis.[2025-09-05 05:44:42,700] INFO:huey:Worker-1:tasks.run_pipeline_task: 39f3c773-c55c-4752-8026-8434a2f4c902 executed in 38313.567s
+INFO:huey:tasks.run_pipeline_task: 39f3c773-c55c-4752-8026-8434a2f4c902 executed in 38313.567s
+[2025-09-05 11:43:00,595] INFO:huey:Worker-1:Executing tasks.run_pipeline_task: ccc6428c-8268-49ac-80ea-3773ad0bf4cb
+INFO:huey:Executing tasks.run_pipeline_task: ccc6428c-8268-49ac-80ea-3773ad0bf4cb
+[2025-09-05 22:34:39,526] INFO:huey:Worker-1:tasks.run_pipeline_task: ccc6428c-8268-49ac-80ea-3773ad0bf4cb executed in 38991.227s
+INFO:huey:tasks.run_pipeline_task: ccc6428c-8268-49ac-80ea-3773ad0bf4cb executed in 38991.227s

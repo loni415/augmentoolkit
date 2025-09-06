@@ -1,0 +1,11 @@
+ INFO  Accepting connections at http://localhost:5173
+ HTTP  9/4/2025 7:02:05 PM ::1 GET /
+ HTTP  9/4/2025 7:02:05 PM ::1 Returned 304 in 12 ms
+ HTTP  9/4/2025 7:02:05 PM ::1 GET /assets/index-BSUC2VDq.js
+ HTTP  9/4/2025 7:02:05 PM ::1 GET /assets/index-CiLzFkHD.css
+ HTTP  9/4/2025 7:02:05 PM ::1 Returned 304 in 2 ms
+ HTTP  9/4/2025 7:02:05 PM ::1 Returned 304 in 2 ms
+ HTTP  9/4/2025 7:02:05 PM ::1 GET /assets/atk-logo-notscuffed-BIuKPhzk.png
+ HTTP  9/4/2025 7:02:05 PM ::1 Returned 304 in 1 ms
+ HTTP  9/4/2025 7:02:05 PM ::1 GET /assets/atk-logo-notscuffed-BIuKPhzk.png
+ HTTP  9/4/2025 7:02:05 PM ::1 Returned 304 in 0 ms
