@@ -13,3 +13,5 @@
  HTTP  9/6/2025 7:52:41 AM ::1 Returned 200 in 9 ms
  HTTP  9/6/2025 7:52:41 AM ::1 GET /assets/index-BSUC2VDq.js
  HTTP  9/6/2025 7:52:41 AM ::1 Returned 200 in 6 ms
+
+ INFO  Gracefully shutting down. Please wait...
