@@ -11,7 +11,7 @@ api:
   large_mode: api
 path:
   input_dir: ./inputs/strategic_culture
-  output_dir: ./outputs/5sep-repvar
+  output_dir: ./outputs/6sep-repvar
   prompts: ./prompts_local
   default_prompts: ./prompts_local
   #when using inferred facts, add the prompts from that folder into the prompts_local to use
