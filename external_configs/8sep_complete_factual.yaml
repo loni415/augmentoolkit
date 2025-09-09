@@ -38,14 +38,14 @@ path:
   huggingface_cache_dir: ./cache/huggingface
 system:
   number_of_factual_sft_generations_to_do: 2
-  completion_mode: True
+  completion_mode: False #?
   remove_system_prompt_ratio: 0.2 # remove the system prompts from this % of the final domain data. Helps generalization.
   remove_thought_process_ratio: 0.2 # remove the thought process from this % of the final domain data. Helps generalization.
   remove_thought_process_prompt: Do not write out your thoughts first; answer immediately.
   final_answer_str: "Answer:" # Basically, whatever your </think> string is. Used alongside remove thought process ratio.
   generic_thought_process_on_domain_data: True # whether to make the domains-specific data use similar thought process structure as the generic data. May improve performance and generalization but requires source citing to be on if you want filenames in answers that you can reference. Also adds an extra LLM computation step. NOTE/QUESTION to me -- should this be a step inside the factual pipeline, or the complete pipeline?
   cite_sources_at_end: True # Whether the sources used to produce an answer are appended to the end of each domain-specific AI answer. (NOTE this will have to be used in the generic thoughts pipeline.
-  concurrency_limit: 2 # Adjust this up or down based on your hardware. This setting is the **most important** for speed, overall. 10 is a low value meant for something like an older Mac laptop. If you have a GPU with decent VRAM, crank this a bit higher. If you're industrial scale, pump this extremely high. If you don't want to wait, use the API config, _START_HERE..., instead (it is still very cheap). 
+  concurrency_limit: 1 # Adjust this up or down based on your hardware. This setting is the **most important** for speed, overall. 10 is a low value meant for something like an older Mac laptop. If you have a GPU with decent VRAM, crank this a bit higher. If you're industrial scale, pump this extremely high. If you don't want to wait, use the API config, _START_HERE..., instead (it is still very cheap). 
   # Local inference is for these groups: industrial level applications of Augmentoolkit wanting datagen at serious scales using the custom model; ML Hobbyists or researchers who feel existential anxiety when they have a GPU that is idling; people who don't want to spend any money at all (well, you'll still have to spend some to train, more than the datagen, but it's not much); people who want to use a very specific model for their dataset generation but this model is not offered by any API; and people who don't want to send any data to someone's cloud. Just, if you do use only local inference and you only have a laptop, expect it to take like a week maybe? Dataset generation is parallelizable though so you can split with a friend, just cut the `number_of_factual_sft_generations_to_do` in half between you, and also cut `variation_generation_counts`
   use_stop: True
   subset_size: 5
