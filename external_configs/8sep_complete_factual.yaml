@@ -1,13 +1,5 @@
 pipeline: factual-datagen-pipeline
 
-# To set up llama.cpp and the custom datagen model, run `bash local_macos.sh` or `bash local_linux.sh` depending on your OS
-
-# Welcome to the config that will run your first Augmentoolkit pipeline!
-# This config is already configured to create a dataset based on some of the US army field manuals
-# Simply add your deepinfra API key (or change the provider to be local/some other provider) and run the pipeline to make your very own dataset and training configs for creating a domain expert!
-
-
-# The US Army field manuals were was chosen as a data source because 1) there are a lot of them, 2) they are modern, 3) they are all on the same subject, 4) they are publicly available.
 
 
 no_flatten:
@@ -26,7 +18,7 @@ model_auto_train: # this config uses presets for inputs, outputs, etc. To help y
   wandb_api_key: 
   pod_id: # For taking advantage of a preexisting pod
 model_auto_run: # Augmentoolkit can download and run the model that you just trained, automatically for you. To run it in the future, run either the llm_server or rag_server pipelines, which will start an LLM server on port 8003. The interface has a chat window that listens to this port and lets you converse with your custom model entirely from within Augmentoolkit, entirely locally. NOTE THAT between the original weights of the model, plus the quantized weights, this will take 22 gigabytes of additional disk space for a moment, before going back down to 7 gigabytes -- ensure you have enough room!
-  do_run: True
+  do_run: False
   cache_dir: ./cache
   server_type: normal # normal OR rag, only meaningfu lif do_run is on, defaults to normal
 
@@ -41,7 +33,7 @@ path:
       rag_use_subset: True
       correction_subset_size: 0 # 1500
       correction_use_subset: True
-  output_dir: ./outputs/8sep_sft
+  output_dir: ./outputs/9sep_sft
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
@@ -71,12 +63,12 @@ pdf_cleaning:
   pdf_cleaning_chunk_size: 8192
   pdf_cleaning_small_model: augmentoolkit 
   pdf_cleaning_large_model: augmentoolkit
-  pdf_cleaning_small_mode: ollama
-  pdf_cleaning_large_mode: ollama
+  pdf_cleaning_small_mode: api
+  pdf_cleaning_large_mode: api
   pdf_cleaning_small_base_url: http://127.0.0.1:11434/v1
   pdf_cleaning_large_base_url: http://127.0.0.1:11434/v1
-  pdf_cleaning_small_api_key: notused
-  pdf_cleaning_large_api_key: notused
+  pdf_cleaning_small_api_key: ollama
+  pdf_cleaning_large_api_key: ollama
   pdf_cleaning_use_stop: True
   pdf_cleaning_cost_small_input: 0.15
   pdf_cleaning_cost_small_output: 0.20
@@ -88,12 +80,12 @@ representation_variation:
   representation_variation_chunk_size: 8192
   representation_variation_small_model: augmentoolkit
   representation_variation_large_model: augmentoolkit
-  representation_variation_small_mode: ollama
-  representation_variation_large_mode: ollama
+  representation_variation_small_mode: api
+  representation_variation_large_mode: api
   representation_variation_small_base_url: http://127.0.0.1:11434/v1
   representation_variation_large_base_url: http://127.0.0.1:11434/v1
-  representation_variation_small_api_key: notused # API settings are separated by pipeline for greater configuration
-  representation_variation_large_api_key: notused
+  representation_variation_small_api_key: ollama # API settings are separated by pipeline for greater configuration
+  representation_variation_large_api_key: ollama
   representation_variation_cost_small_input: 0.15
   representation_variation_cost_small_output: 0.20
   representation_variation_cost_large_input: 0.23
@@ -156,13 +148,13 @@ factual_sft_settings:
   factual_chunk_size: 8192
   factual_completion_mode: False
   factual_small_model: augmentoolkit
-  factual_small_api_key: notused
+  factual_small_api_key: ollama
   factual_small_base_url: http://127.0.0.1:11434/v1
-  factual_small_mode: ollama
+  factual_small_mode: api
   factual_large_model: augmentoolkit
-  factual_large_api_key: notused
+  factual_large_api_key: ollama
   factual_large_base_url: http://127.0.0.1:11434/v1
-  factual_large_mode: ollama
+  factual_large_mode: api
   factual_cost_per_million_small_input: 0.15
   factual_cost_per_million_small_output: 0.20
   factual_cost_per_million_large_input: 0.23
@@ -218,13 +210,13 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
   num_items_per_group: 3
   rag_skip_filter_chunks: False
   rag_small_model: augmentoolkit
-  rag_small_api_key: notused
+  rag_small_api_key: ollama
   rag_small_base_url: http://127.0.0.1:11434/v1
-  rag_small_mode: ollama
+  rag_small_mode: api
   rag_large_model: augmentoolkit
-  rag_large_api_key: notused
+  rag_large_api_key: ollama
   rag_large_base_url: http://127.0.0.1:11434/v1
-  rag_large_mode: ollama
+  rag_large_mode: api
   rag_cost_per_million_small_input: 0.15
   rag_cost_per_million_small_output: 0.20
   rag_cost_per_million_large_input: 0.23
@@ -232,16 +224,17 @@ Task is to ANSWER QUESTIONS primarily about {context}. Use both the information 
   rag_use_stop: True
   rag_prompts: prompts_local
   rag_default_prompts: prompts_local
+
 transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain_data is True
   transform_generic_data_use_stop: True
   transform_generic_data_large_model: augmentoolkit
-  transform_generic_data_large_api_key: notused
+  transform_generic_data_large_api_key: ollama
   transform_generic_data_large_base_url: http://127.0.0.1:11434/v1
-  transform_generic_data_large_mode: ollama
+  transform_generic_data_large_mode: api
   transform_generic_data_small_model: augmentoolkit
-  transform_generic_data_small_api_key: notused
+  transform_generic_data_small_api_key: ollama
   transform_generic_data_small_base_url: http://127.0.0.1:11434/v1
-  transform_generic_data_small_mode: ollama
+  transform_generic_data_small_mode: api
   transform_generic_cot_preface: "Thought Process:"
   transform_generic_cot_suffix: "\nAnswer:"
   transform_generic_prompts: "prompts"
@@ -249,18 +242,19 @@ transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain
   transform_generic_data_cost_per_million_small_output: 0.88
   transform_generic_data_cost_per_million_large_input: 0.30
   transform_generic_data_cost_per_million_large_output: 0.88
+
 correction_pipeline:
   correction_use_subset: True
-  correction_subset_size: 30
+  correction_subset_size: 0
   correction_chunk_size: 8192
   correction_small_model: augmentoolkit
-  correction_small_api_key: notused
+  correction_small_api_key: ollama
   correction_small_base_url: http://127.0.0.1:11434/v1
-  correction_small_mode: ollama
+  correction_small_mode: api
   correction_large_model: augmentoolkit
-  correction_large_api_key: notused
+  correction_large_api_key: ollama
   correction_large_base_url: http://127.0.0.1:11434/v1
-  correction_large_mode: ollama
+  correction_large_mode: api
   correction_cost_per_million_small_input: 0.15
   correction_cost_per_million_small_output: 0.20
   correction_cost_per_million_large_input: 0.23
@@ -270,6 +264,7 @@ correction_pipeline:
   correction_completion_mode: False
   correction_prompts: prompts_local
   correction_default_prompts: prompts_local
+
 final_datasaving_settings:
   template: "atk" # This is either a preset (atk, chatml), or it is a jinja2 string that acts as a custom template
   template_kwargs: {}
@@ -301,6 +296,7 @@ final_datasaving_settings:
     - 10
   max_samples_per_dataset: 100000 # use to control absolutely absurd snowballing download sizes. The maximum number of rows per dataset to take.
   minimum_generic_sft: 2000000 # code sets the number of target generic sft tokens to max(minimum_generic_sft, the sum of the generic dataset percentages)
+
 model_training:
   base_model: alpindale/Mistral-7B-v0.2-hf
   pretrain_hub_model_id: 
