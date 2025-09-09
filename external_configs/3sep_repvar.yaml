@@ -22,7 +22,7 @@ system:
   subset_size: 5
   use_min_p: False
   use_subset: False 
-  chunk_size: 4000
+  chunk_size: 8192 #new, was 4000
   keep_system_prompt: True
   variation_generator_count: 4 
   make_inferred_facts: True

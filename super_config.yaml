@@ -3,11 +3,11 @@ pipeline_order:
   #- node: recall-multi-source-pipeline
   #  config: external:lf1_mutli_fact_gen.yaml
 
-  - node: repvar-pipeline #found below
-    config: external:2sep_repvar.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
+  #- node: repvar-pipeline #found below
+  #  config: external:2sep_repvar.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
   
-  #- node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
-  #  config: external:15jul-local_comp_fact.yaml
+  - node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
+    config: external:8sep_complete_factual.yaml
 
   # - node: rag-server # you can chain multiple pipelines. They will be executed sequentially.
   #   config: rag-config
