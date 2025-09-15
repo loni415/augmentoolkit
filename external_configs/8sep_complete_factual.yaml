@@ -29,7 +29,7 @@ path:
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
       factual_gen_subset_size_per_way: 200 #2000
       factual_gen_use_subset: True
-      rag_subset_size: 0 # 1500
+      rag_subset_size: 1 # 1500
       rag_use_subset: True
       correction_subset_size: 1 # 1500
       correction_use_subset: True
@@ -45,7 +45,7 @@ system:
   final_answer_str: "Answer:" # Basically, whatever your </think> string is. Used alongside remove thought process ratio.
   generic_thought_process_on_domain_data: True # whether to make the domains-specific data use similar thought process structure as the generic data. May improve performance and generalization but requires source citing to be on if you want filenames in answers that you can reference. Also adds an extra LLM computation step. NOTE/QUESTION to me -- should this be a step inside the factual pipeline, or the complete pipeline?
   cite_sources_at_end: True # Whether the sources used to produce an answer are appended to the end of each domain-specific AI answer. (NOTE this will have to be used in the generic thoughts pipeline.
-  concurrency_limit: 1 # Adjust this up or down based on your hardware. This setting is the **most important** for speed, overall. 10 is a low value meant for something like an older Mac laptop. If you have a GPU with decent VRAM, crank this a bit higher. If you're industrial scale, pump this extremely high. If you don't want to wait, use the API config, _START_HERE..., instead (it is still very cheap). 
+  concurrency_limit: 2 # Adjust this up or down based on your hardware. This setting is the **most important** for speed, overall. 10 is a low value meant for something like an older Mac laptop. If you have a GPU with decent VRAM, crank this a bit higher. If you're industrial scale, pump this extremely high. If you don't want to wait, use the API config, _START_HERE..., instead (it is still very cheap). 
   # Local inference is for these groups: industrial level applications of Augmentoolkit wanting datagen at serious scales using the custom model; ML Hobbyists or researchers who feel existential anxiety when they have a GPU that is idling; people who don't want to spend any money at all (well, you'll still have to spend some to train, more than the datagen, but it's not much); people who want to use a very specific model for their dataset generation but this model is not offered by any API; and people who don't want to send any data to someone's cloud. Just, if you do use only local inference and you only have a laptop, expect it to take like a week maybe? Dataset generation is parallelizable though so you can split with a friend, just cut the `number_of_factual_sft_generations_to_do` in half between you, and also cut `variation_generation_counts`
   use_stop: True
   subset_size: 5 #number of text chunks from each input dataset to use. Set to 0 to use all.
@@ -85,7 +85,7 @@ representation_variation:
   representation_variation_large_mode: api
   representation_variation_small_base_url: http://127.0.0.1:11434/v1
   representation_variation_large_base_url: http://127.0.0.1:11434/v1
-  representation_variation_small_api_key: ollama # API settings are separated by pipeline for greater configuration
+  representation_variation_small_api_key: ollama # API settings separated by pipeline for greater configuration
   representation_variation_large_api_key: ollama
   representation_variation_cost_small_input: 0.15
   representation_variation_cost_small_output: 0.20
@@ -99,7 +99,7 @@ representation_variation:
   include_context_in_dataset: True
   make_inferred_facts: True
   code_variation_functions: ["keyboard_augmentation"]
-factual_sft: # a list of the prompts to use for each. Hmm how do I avoid this being passed as an argument by the flattened thing? Maybe we actually format it as a dict in here? Can that be done? Think so? maybe?
+factual_sft: # a list of the prompts to use for each.
   openended:
     prompts: prompt_overrides_local/openended
     default_prompts: prompts_local
