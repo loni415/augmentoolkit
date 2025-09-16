@@ -12,7 +12,7 @@ no_flatten:
   - input_dirs
 
 model_auto_train: # this config uses presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
-  do_train: False # whether or not to actually do an automatic training run at the end, or if you want to manage it yourself
+  do_train: True # whether or not to actually do an automatic training run at the end, or if you want to manage it yourself
   runpod_api_key: 
   huggingface_token: 
   wandb_api_key: 
@@ -25,20 +25,20 @@ model_auto_run: # Augmentoolkit can download and run the model that you just tra
 path:
   input_dirs:
     - path: inputs/strategic_culture # the external configs use presets for inputs, outputs, etc. To help you learn/experiment. But the source configs will have placeholders for all fields that are basically guaranteed to vary across runs.
-      variation_generation_counts: 1 # 4 number of variations generated for each text chunk put thru a and each pipeline task
+      variation_generation_counts: 4 # 4 number of variations generated for each text chunk put thru each pretraining? pipeline task
       final_system_prompt_additional_context: "Think first, then respond." # can leave blank if you do not want to change the system prompt
-      factual_gen_subset_size_per_way: 200 #2000
+      factual_gen_subset_size_per_way: 1000 #2000
       factual_gen_use_subset: True
-      rag_subset_size: 1 # 1500
+      rag_subset_size: 5 # 1500
       rag_use_subset: True
-      correction_subset_size: 1 # 1500
+      correction_subset_size: 10 # 1500
       correction_use_subset: True
-  output_dir: ./outputs/15sep_8sepcompfct
+  output_dir: ./outputs/15sep_8sepcompfct_v2
   models_dir: ./models/ # Only used if do_train and do_run are on.
   huggingface_cache_dir: ./cache/huggingface
 system:
   number_of_factual_sft_generations_to_do: 1 # 2 iterations of generating SFT data for openended, etc. each
-  completion_mode: True #?
+  completion_mode: False #?
   remove_system_prompt_ratio: 0.2 # remove the system prompts from this % of the final domain data. Helps generalization.
   remove_thought_process_ratio: 0.2 # remove the thought process from this % of the final domain data. Helps generalization.
   remove_thought_process_prompt: Do not write out your thoughts first; answer immediately.
@@ -48,7 +48,7 @@ system:
   concurrency_limit: 2 # Adjust this up or down based on your hardware. This setting is the **most important** for speed, overall. 10 is a low value meant for something like an older Mac laptop. If you have a GPU with decent VRAM, crank this a bit higher. If you're industrial scale, pump this extremely high. If you don't want to wait, use the API config, _START_HERE..., instead (it is still very cheap). 
   # Local inference is for these groups: industrial level applications of Augmentoolkit wanting datagen at serious scales using the custom model; ML Hobbyists or researchers who feel existential anxiety when they have a GPU that is idling; people who don't want to spend any money at all (well, you'll still have to spend some to train, more than the datagen, but it's not much); people who want to use a very specific model for their dataset generation but this model is not offered by any API; and people who don't want to send any data to someone's cloud. Just, if you do use only local inference and you only have a laptop, expect it to take like a week maybe? Dataset generation is parallelizable though so you can split with a friend, just cut the `number_of_factual_sft_generations_to_do` in half between you, and also cut `variation_generation_counts`
   use_stop: True
-  subset_size: 5 #number of text chunks from each input dataset to use. Set to 0 to use all.
+  subset_size: 10 #number of text chunks from each input dataset to use. Set to 0 to use all.
   use_subset: True
   chunk_size: 8192
   what_percent_of_sft_is_pretrain: # use either this or num_tokens_pretrain_in_sft. The latter sets it directly, this one sets it relative to the number of SFT tokens.
@@ -148,7 +148,7 @@ factual_sft: # a list of the prompts to use for each.
 factual_sft_settings:
   factual_use_stop: True
   factual_chunk_size: 8192
-  factual_completion_mode: True
+  factual_completion_mode: False
   factual_small_model: augmentoolkit
   factual_small_api_key: ollama
   factual_small_base_url: http://127.0.0.1:11434/v1
@@ -247,7 +247,7 @@ transform_generic_data: # NOTE -- only used if generic_thought_process_on_domain
 
 correction_pipeline:
   correction_use_subset: True
-  correction_subset_size: 1
+  correction_subset_size: 10
   correction_chunk_size: 8192
   correction_small_model: augmentoolkit
   correction_small_api_key: ollama
@@ -263,7 +263,7 @@ correction_pipeline:
   correction_cost_per_million_large_output: 0.40
   correction_prompt_template: "{% for message in messages %}{% if (message['role'] == 'system') %}{{message['content'] + '\n'}}{% elif (message['role'] == 'user') %}{{'Human: ' + message['content'] + ' **Finished.**' + '\n'}}{% elif message['role'] == 'assistant' %}{{'AI: ' + message['content'] + ' **Finished.**' + '\n'}}{% endif %}{% endfor %}"
   correction_use_stop: True
-  correction_completion_mode: True
+  correction_completion_mode: False
   correction_prompts: prompts_local
   correction_default_prompts: prompts_local
 
