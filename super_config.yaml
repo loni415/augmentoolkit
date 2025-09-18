@@ -1,11 +1,24 @@
 
 pipeline_order:
-  - node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
-    config:  external:_START_HERE_complete_factual.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
+  - node: factual-datagen-pipeline 
+    config:  external:16sep_complete_fact.yaml 
 
   # - node: rag-server # you can chain multiple pipelines. They will be executed sequentially.
   #   config: rag-config
   
+  #- node: repvar-pipeline #found below
+  #  config: external:2sep_repvar.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
+
+  # - node: rag-server # you can chain multiple pipelines. They will be executed sequentially.
+  #   config: rag-config
+  
+  # - node: correction-pipeline
+  #   config: external:11aug_correction_config.yaml
+
+  #- node: rag-data-pipeline
+  #  config: external:11aug_rag_data.yaml
+
+
 path_aliases:
   # Base Directory Aliases
   gen_comp: generation/core_composition
