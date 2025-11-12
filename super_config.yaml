@@ -1,7 +1,7 @@
 
 pipeline_order:
-  - node: factual-datagen-pipeline # If you want to run a custom trained model on a discord server: discord-server
-    config:  external:3nov_uva_complete_fact.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
+  - node: repvar-pipeline # If you want to run a custom trained model on a discord server: discord-server
+    config:  external:11nov_representation_variation_config.yaml # If you want to run a custom trained model on a discord server: external:hidden_discord_supertest.yaml
 
   # - node: rag-server # you can chain multiple pipelines. They will be executed sequentially.
   #   config: rag-config
