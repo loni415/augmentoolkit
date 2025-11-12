@@ -12,10 +12,10 @@ api:
 path:
   input_dir: ./inputs/strategic_culture
   output_dir: ./outputs/11nov-repvar
-  prompts: prompts_local
-  default_prompts: prompts
-  prompts_inferred: prompts_inferred_facts_local
-  default_prompts_inferred: prompts_inferred_facts
+  prompts: generation/core_pipelines/representation_variation/prompts_local
+  default_prompts: generation/core_pipelines/representation_variation/prompts
+  prompts_inferred: generation/core_pipelines/representation_variation/prompts_inferred_facts_local
+  default_prompts_inferred: generation/core_pipelines/representation_variation/prompts_inferred_facts
 system:
   completion_mode: False
   concurrency_limit: 2
