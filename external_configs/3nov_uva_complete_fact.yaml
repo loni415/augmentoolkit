@@ -58,7 +58,7 @@ system:
 
     Preface your thoughts with "Thought Process:" and your reponse with "Answer:". Write the filenames of any sources you recalled from memory in a list titled "Sources Cited" at the bottom of your response.
 pdf_cleaning:
-  pdf_cleaning_chunk_size: 8192
+  pdf_cleaning_chunk_size: 4000
   pdf_cleaning_small_model: Heralax/Augmentoolkit-DataSpecialist-v0.1 
   pdf_cleaning_large_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
   pdf_cleaning_small_mode: api
@@ -75,7 +75,7 @@ pdf_cleaning:
   pdf_cleaning_prompts: prompts_local
   pdf_cleaning_default_prompts: prompts_local
 representation_variation:
-  representation_variation_chunk_size: 2000
+  representation_variation_chunk_size: 4000
   representation_variation_small_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
   representation_variation_large_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
   representation_variation_small_mode: api
@@ -143,7 +143,7 @@ factual_sft: # a list of the prompts to use for each. Hmm how do I avoid this be
     multi_source: True
 factual_sft_settings:
   factual_use_stop: True
-  factual_chunk_size: 1500
+  factual_chunk_size: 4000
   factual_completion_mode: False
   factual_small_model: Heralax/Augmentoolkit-DataSpecialist-v0.1
   factual_small_api_key: notused
